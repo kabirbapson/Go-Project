@@ -4,11 +4,15 @@ import {View, StatusBar, StyleSheet, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionic from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 // screens
-import Home from '../screens/Home';
-import Location from '../screens/Location';
-import Profile from '../screens/Profile';
+// import Home from '../screens/Home';
+import GoAlert from '../screens/GoAlert';
+import GoInfo from '../screens/GoInfo';
+import GoNews from '../screens/GoNews';
+// import Location from '../screens/Location';
+// import Profile from '../screens/Profile';
 import {wp, hp} from '../utils/dpTopx';
 import {COLORS} from '../../assets/colors';
 
@@ -20,20 +24,34 @@ export default function NavBottomBar() {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, size, color}) => {
           let iconName;
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-            size = focused ? size + 8 : size + 5;
-            color = focused ? '#2A9D8F' : 'black';
-          } else if (route.name === 'Location') {
-            iconName = focused ? 'location' : 'location-outline';
-            size = focused ? size + 8 : size + 5;
-            color = focused ? '#2A9D8F' : 'black';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline';
-            size = focused ? size + 8 : size + 5;
-            color = focused ? '#2A9D8F' : 'black';
+          if (route.name === 'Go-News') {
+            iconName = focused ? 'newspaper' : 'newspaper';
+            // size = focused ? size + 5 : size + 3;
+            color = focused ? '#2A9D8F' : 'white';
+          } else if (route.name === 'Go-Info') {
+            iconName = focused ? 'street-view' : 'street-view';
+            // size = focused ? size + 5 : size + 3;
+            color = focused ? '#2A9D8F' : 'white';
+          } else if (route.name === 'Go-Alert') {
+            iconName = focused
+              ? 'exclamation-triangle'
+              : 'exclamation-triangle';
+            // size = focused ? size + 5 : size + 3;
+            color = focused ? '#2A9D8F' : 'white';
           }
-          return <Ionic name={iconName} size={size} color={color} />;
+          return (
+            <View style={{alignItems: 'center'}}>
+              <FontAwesome name={iconName} size={size} color={color} />
+              <Text
+                style={{
+                  color: 'white',
+                  fontFamily: 'Lato-Regular',
+                  fontSize: 10,
+                }}>
+                {route.name}
+              </Text>
+            </View>
+          );
         },
         tabBarActiveTintColor: 'skyblue',
         tabBarInactiveTintColor: 'black',
@@ -48,15 +66,19 @@ export default function NavBottomBar() {
           alignSelf: 'center',
         },
       })}>
-      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
       <Tab.Screen
-        name="Location"
-        component={Location}
+        name="Go-News"
+        component={GoNews}
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Go-Info"
+        component={GoInfo}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Go-Alert"
+        component={GoAlert}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

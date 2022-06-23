@@ -11,7 +11,9 @@ export default function Profile({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.iconView}>
+        <TouchableOpacity
+          style={styles.iconView}
+          onPress={() => navigation.goBack()}>
           <Feather
             style={styles.featherIcon}
             name="arrow-left"

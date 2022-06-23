@@ -8,7 +8,8 @@ function TitleTextComponent({textTitle, textStyle}) {
 const styles = StyleSheet.create({
   centreText: {
     width: '100%',
-    fontFamily: 'Lato-Black',
+    // color: '#FDC904',
+    // fontFamily: 'Lato-Black',
     fontSize: 18,
   },
 });

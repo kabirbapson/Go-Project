@@ -22,7 +22,7 @@ export default function ScreenNavigation() {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Settings"
+        name="Profile"
         component={Profile}
         options={{headerShown: false}}
       />
