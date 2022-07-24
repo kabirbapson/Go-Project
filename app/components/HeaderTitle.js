@@ -2,15 +2,12 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {hp, wp} from '../utils/dpTopx';
 
-function TitleTextComponent({textTitle, textStyle}) {
+export const HeaderTitle = ({textTitle, textStyle}) => {
   return <Text style={[styles.centreText, textStyle]}>{textTitle}</Text>;
-}
+};
 const styles = StyleSheet.create({
   centreText: {
-    width: '100%',
-    // color: '#FDC904',
-    // fontFamily: 'Lato-Black',
-    fontSize: 18,
+    fontFamily: 'Lato-Black',
+    fontSize: hp(20),
   },
 });
-export default TitleTextComponent;

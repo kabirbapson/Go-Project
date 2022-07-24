@@ -4,7 +4,7 @@ import {COLORS} from '../../assets/colors';
 import {hp, wp} from '../utils/dpTopx';
 import CardComponent from '../components/CardComponent';
 import HeaderComponent from '../components/HeaderComponent';
-import TitleTextComponent from '../components/TitleTextComponent';
+import {HeaderTitle} from '../components/HeaderTitle';
 import ButtonComponent from '../components/ButtonComponent';
 
 const DATA = [
@@ -59,50 +59,44 @@ function GoAlert({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View>
-          <View>
-            <HeaderComponent
-              title={'GOMBE\nALERT'}
-              featherIconColor="#FDC904"
-              titleColor={styles.titleColor}
-              onProfilePress={() => navigation.navigate('Profile')}
-            />
+        <HeaderComponent
+          title={'GOMBE\nALERT'}
+          featherIconColor="#FDC904"
+          titleColor={styles.titleColor}
+          onProfilePress={() => navigation.navigate('Profile')}
+        />
 
-            <View style={styles.headerTexts}>
-              <View>
-                <TitleTextComponent
-                  textStyle={styles.headTitle}
-                  textTitle={'Gombe, Report Your Area!'}
-                />
-              </View>
-              <View>
-                <TitleTextComponent
-                  textStyle={styles.headSubTitle}
-                  textTitle={
-                    'This is Gombe state alert,\nyour direct link to Gombe State Government'
-                  }
-                />
-              </View>
-            </View>
-            <View>
-              <View style={styles.headerButtons}>
-                <ButtonComponent
-                  title="QUICK ALERT"
-                  onPress={() => sendTipsAlert()}
-                />
-                <ButtonComponent
-                  title="SEND TIPS"
-                  buttStyle={{backgroundColor: '#F4A261'}}
-                  onPress={sendTipsAlert}
-                />
-              </View>
-            </View>
+        <View style={styles.headerTexts}>
+          <HeaderTitle
+            textStyle={styles.headTitle}
+            textTitle={'Gombe, Report Your Area!'}
+          />
+          <View>
+            <HeaderTitle
+              textStyle={styles.headSubTitle}
+              textTitle={
+                'This is Gombe state alert,\nyour direct link to Gombe State Government'
+              }
+            />
+          </View>
+        </View>
+        <View>
+          <View style={styles.headerButtons}>
+            <ButtonComponent
+              title="QUICK ALERT"
+              onPress={() => sendTipsAlert()}
+            />
+            <ButtonComponent
+              title="SEND TIPS"
+              buttStyle={{backgroundColor: '#F4A261'}}
+              onPress={sendTipsAlert}
+            />
           </View>
         </View>
       </View>
 
-      <View>
-        <TitleTextComponent
+      <View style={{paddingHorizontal: 25}}>
+        <HeaderTitle
           textStyle={styles.textEmergencyAssistance}
           textTitle={'Emergency Assistance'}
         />
@@ -120,23 +114,21 @@ function GoAlert({navigation}) {
 }
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: '#e5e5e5',
     flex: 1,
+
+    backgroundColor: '#e5e5e5',
   },
   header: {
     backgroundColor: '#216131',
-    width: '100%',
-    height: hp(270),
-    paddingHorizontal: hp(10),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    paddingHorizontal: 25,
+    paddingTop: 20,
+    paddingBottom: 50,
   },
   textEmergencyAssistance: {
     paddingVertical: 10,
   },
   headerTexts: {
-    margin: hp(20),
+    margin: hp(10),
   },
   headTitle: {
     color: COLORS.white,

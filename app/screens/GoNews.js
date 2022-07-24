@@ -12,83 +12,62 @@ import {COLORS} from '../../assets/colors';
 import {hp, wp} from '../utils/dpTopx';
 import CardComponent from '../components/CardComponent';
 import HeaderComponent from '../components/HeaderComponent';
-import TitleTextComponent from '../components/TitleTextComponent';
+import {HeaderTitle} from '../components/HeaderTitle';
 
-function GoNews({navigation}) {
+export default function GoNews({navigation}) {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <HeaderComponent
-          title={'GOMBE\nNEWS'}
-          titleColor={styles.titleColor}
-          featherIconColor="#216131"
-          onProfilePress={() => navigation.navigate('Profile')}
-        />
-      </View>
+      <HeaderComponent
+        title={'GOMBE\nNEWS'}
+        titleColor={styles.titleColor}
+        featherIconColor="#216131"
+        onProfilePress={() => navigation.navigate('Profile')}
+      />
       <ScrollView style={styles.scrollView}>
-        <View>
-          <TitleTextComponent
-            textStyle={styles.textTitleEA}
-            textTitle={'Welcome to Gombe State Government \nNews & Updates'}
-          />
-        </View>
-        <View style={styles.centreNews}>
-          <View style={styles.latestNews}>
-            <TouchableOpacity activeOpacity={0.7}>
-              <Image
-                resizeMode="contain"
-                style={styles.imageP}
-                source={require('../../assets/images/kbb.jpg')}
-              />
-              <Text style={styles.topNews}>
-                Governor Inuwa Yahaya exceeding expectations in Gombe
-              </Text>
-              <Text style={styles.topNewsSum}>
-                As far as Gombe is concerned, there is no vacancy in the Jewel
-                in the Savannah. We want the Governor to come back in order to
-                consolidate what he started...
-              </Text>
-              <View style={styles.topNewsBottomText}>
-                <Text style={styles.topNewsBottomTextStyle}>
-                  read more... *
-                </Text>
-                <Text style={styles.topNewsBottomTextStyle}>4 min read *</Text>
-                <Text style={styles.topNewsBottomTextStyle}> 47k comment</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+        {/* header title */}
+        <HeaderTitle textTitle={'Breaking News'} />
 
-          <View>
-            <View>
-              <TouchableOpacity style={styles.otherNews}>
-                <View>
-                  <Image
-                    resizeMode="contain"
-                    style={styles.otherNewsImage}
-                    source={require('../../assets/images/kbb.jpg')}
-                  />
-                </View>
-                <View style={styles.otherNewsText}>
-                  <Text>
-                    Gombe politics: After months of bickering, Gov Yahaya, Goje
-                    reconcile
-                  </Text>
-                  <Text>read more...</Text>
-                </View>
-              </TouchableOpacity>
+        {/* latestNews */}
+        <View style={styles.latestNews}>
+          <TouchableOpacity activeOpacity={0.7}>
+            <Image
+              resizeMode="contain"
+              style={styles.imageP}
+              source={require('../../assets/images/kbb.jpg')}
+            />
+            <Text style={styles.topNews}>
+              Governor Inuwa Yahaya exceeding expectations in Gombe
+            </Text>
+            <Text style={styles.topNewsSum}>
+              As far as Gombe is concerned, there is no vacancy in the Jewel in
+              the Savannah. We want the Governor to come back in order to
+              consolidate what he started...
+            </Text>
+            <View style={styles.topNewsBottomText}>
+              <Text style={styles.topNewsBottomTextStyle}>read more... *</Text>
+              <Text style={styles.topNewsBottomTextStyle}>4 min read *</Text>
+              <Text style={styles.topNewsBottomTextStyle}>47k comment</Text>
             </View>
-            <View>
-              <TouchableOpacity style={styles.otherNews}>
-                <Image
-                  resizeMode="contain"
-                  style={styles.otherNewsImage}
-                  source={require('../../assets/images/kbb.jpg')}
-                />
-                <Text>Gombe Politics: Ex-Rep quits APC</Text>
-                <Text>read more...</Text>
-              </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
+
+        {/* section card */}
+        <View style={{marginTop: hp(28)}}>
+          <TouchableOpacity style={styles.otherNews}>
+            <Image
+              resizeMode="contain"
+              style={styles.otherNewsImage}
+              source={require('../../assets/images/kbb.jpg')}
+            />
+
+            <View style={styles.otherNewsText}>
+              <Text>
+                Gombe politics: After months of bickering, Gov Yahaya, Goje
+                reconcile
+              </Text>
+              <Text>read more...</Text>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -96,9 +75,10 @@ function GoNews({navigation}) {
 }
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    backgroundColor: '#e5e5e5',
     flex: 1,
+    backgroundColor: '#F8F9FA',
+    paddingHorizontal: 25,
+    paddingTop: 20,
   },
   titleColor: {
     color: '#216131',
@@ -110,29 +90,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   scrollView: {
-    width: wp(360),
-    paddingTop: 10,
-    // backgroundColor: 'red',
+    marginTop: hp(20),
   },
-  textTitleEA: {
-    fontSize: 16,
-    color: 'black',
-    fontFamily: 'Lato-Medium',
-    textAlign: 'center',
-  },
-  centreNews: {
-    alignItems: 'center',
-  },
+  textTitleEA: {},
   latestNews: {
-    padding: 10,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: 'dodgerblue',
-    width: wp(310),
-    height: hp(330),
-    // borderWidth: 1,
-    borderRadius: 5,
-    shadowColor: '#B8C9C0',
+    padding: 14,
+    backgroundColor: '#F8F9FA',
+    borderRadius: 20,
+    shadowColor: '#000000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 1,
     shadowRadius: 3,
@@ -166,6 +131,7 @@ const styles = StyleSheet.create({
   },
   otherNews: {
     flexDirection: 'row',
+    padding: 10,
   },
   otherNewsImage: {
     width: wp(80),
@@ -173,7 +139,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   otherNewsText: {
-    flexDirection: 'column',
+    flex: 1,
+    paddingHorizontal: 7,
   },
 });
-export default GoNews;

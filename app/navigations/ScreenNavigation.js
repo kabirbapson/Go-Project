@@ -10,6 +10,7 @@ import Location from '../screens/Location';
 import Profile from '../screens/Profile';
 import NavBottomBar from './NavBottomBar';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import GoNewsPost from '../screens/GoNewsPost';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +27,11 @@ export default function ScreenNavigation() {
         component={Profile}
         options={{headerShown: false}}
       />
+      <Stack.Screen
+        name="GoNewsPost"
+        component={GoNewsPost}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 }
-const styles = StyleSheet.create({});

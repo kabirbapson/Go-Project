@@ -4,7 +4,7 @@ import {COLORS} from '../../assets/colors';
 import {hp, wp} from '../utils/dpTopx';
 import CardComponent from '../components/CardComponent';
 import HeaderComponent from '../components/HeaderComponent';
-import TitleTextComponent from '../components/TitleTextComponent';
+import TitleTextComponent from '../components/HeaderTitle';
 
 const DATA = [
   {

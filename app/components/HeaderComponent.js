@@ -5,7 +5,8 @@ import {COLORS} from '../../assets/colors';
 import {hp, wp} from '../utils/dpTopx';
 import Button from './Button';
 import ButtonComponent from './ButtonComponent';
-import TitleTextComponent from './TitleTextComponent';
+import TitleTextComponent from './HeaderTitle';
+
 function HeaderComponent({
   title,
   titleColor,
@@ -17,49 +18,44 @@ function HeaderComponent({
   };
 
   return (
-    <View>
-      <View style={styles.logo}>
-        <View style={styles.logoGoFlex}>
+    <View style={styles.logo}>
+      <View style={styles.logoGoFlex}>
+        <Image
+          style={styles.imageR}
+          source={require('../../assets/images/Gs-logo.png')}
+        />
+        <Text style={[styles.mainTitle, titleColor]}>{title}</Text>
+      </View>
+      <View style={styles.wrapProfile}>
+        <Feather
+          style={styles.featherIcon}
+          name="bell"
+          size={20}
+          color={featherIconColor}
+        />
+        <Feather
+          style={styles.featherIcon}
+          name="mail"
+          size={20}
+          color={featherIconColor}
+        />
+        <TouchableOpacity activeOpacity={0.9} onPress={onProfilePress}>
           <Image
-            style={styles.imageR}
-            source={require('../../assets/images/Gs-logo.png')}
+            style={styles.imageP}
+            source={require('../../assets/images/kbb.jpg')}
           />
-          <Text style={[styles.mainTitle, titleColor]}>{title}</Text>
-        </View>
-        <View style={styles.wrapProfile}>
-          <Feather
-            style={styles.featherIcon}
-            name="bell"
-            size={20}
-            color={featherIconColor}
-          />
-          <Feather
-            style={styles.featherIcon}
-            name="mail"
-            size={20}
-            color={featherIconColor}
-          />
-          <TouchableOpacity activeOpacity={0.9} onPress={onProfilePress}>
-            <Image
-              style={styles.imageP}
-              source={require('../../assets/images/kbb.jpg')}
-            />
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
 }
 const styles = StyleSheet.create({
   logo: {
-    marginLeft: hp(20),
-    marginTop: hp(20),
+    justifyContent: 'space-between',
     flexDirection: 'row',
-    width: '100%',
   },
   logoGoFlex: {
     flexDirection: 'row',
-    alignItems: 'center',
   },
   imageR: {
     borderRadius: 19,
@@ -79,10 +75,8 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
   wrapProfile: {
-    marginLeft: hp(170),
-    marginTop: hp(10),
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   featherIcon: {
     marginHorizontal: 5,

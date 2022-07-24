@@ -84,4 +84,3 @@ export default function NavBottomBar() {
     </Tab.Navigator>
   );
 }
-const styles = StyleSheet.create({});
