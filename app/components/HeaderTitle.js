@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {hp, wp} from '../utils/dpTopx';
 
 export const HeaderTitle = ({textTitle, textStyle}) => {
-  return <Text style={[styles.centreText, textStyle]}>{textTitle}</Text>;
+  return <Text style={[styles.centreText]}>{textTitle}</Text>;
 };
 const styles = StyleSheet.create({
   centreText: {

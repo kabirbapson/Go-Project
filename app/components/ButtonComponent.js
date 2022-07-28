@@ -1,11 +1,12 @@
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet} from 'react-native';
+import { Text, Pressable} from 'native-base';
 import React from 'react';
 
 function ButtonComponent({title, buttStyle, textStyle, onPress}) {
   return (
-    <TouchableOpacity style={[styles.butt, buttStyle, onPress]}>
+    <Pressable style={[styles.butt, buttStyle]} onPress={onPress}>
       <Text style={[styles.text, textStyle]}>{title}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 

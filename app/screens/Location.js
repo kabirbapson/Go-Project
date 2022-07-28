@@ -1,84 +1,89 @@
 import {
   StyleSheet,
   TouchableOpacity,
-  Text,
   TextInput,
   ImageBackground,
   View,
 } from 'react-native';
+import {Box, Pressable, Button, Center, Input, Icon} from 'native-base';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
 import HeaderComponent from '../components/HeaderComponent';
-import Button from '../components/Button';
 import Feather from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../assets/colors';
+import HeaderBackButton from '../components/HeaderBackButton';
 
-export default function Location({}) {
+export const RightIcon = ({onPress}) => (
+  <Center w={'10'} h={'10'} borderRadius={100} backgroundColor={'darkBlue.800'}>
+    <Pressable onPress={onPress}>
+      <Feather name="settings" size={20} color={COLORS.white} />
+    </Pressable>
+  </Center>
+);
+
+export default function Location({route, navigation}) {
+  const handleRightButtonPress = () => {
+    console.log('right button');
+  };
+
+  const handleBackButton = () => navigation.goBack();
+
   return (
     <ImageBackground
       source={require('../../assets/images/map_pant.jpg')}
       blurRadius={1}
       resizeMode="cover"
       style={{flex: 1, justifyContent: 'flex-end'}}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.iconView}>
-            <Feather
-              style={styles.featherIcon}
-              name="arrow-left"
-              color="#FFFFFF"
-              size={25}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.iconView}>
-            <Feather
-              style={styles.featherIcon}
-              color="#FFFFFF"
-              name="sliders"
-              size={30}
-            />
-          </TouchableOpacity>
-        </View>
+      <Box flex={1} p={5}>
+        <HeaderBackButton
+          onBackButtonPress={handleBackButton}
+          rightIcon={<RightIcon onPress={handleRightButtonPress} />}
+        />
 
-        <View style={styles.searchLocation}>
-          <TouchableOpacity>
-            <Feather
-              style={styles.featherIcon}
-              color="#264653"
-              name="map-pin"
-              size={20}
+        <Input
+          mt={5}
+          variant="filled"
+          InputLeftElement={
+            <Icon
+              as={<Feather name="map-pin" />}
+              size="md"
+              m={2}
+              _light={{
+                color: 'black',
+              }}
+              _dark={{
+                color: 'gray.300',
+              }}
             />
-          </TouchableOpacity>
-          <View style={styles.searchInput}>
-            <TextInput
-              style={styles.searchTextInput}
-              placeholder="What are you looking for... I"
-              textAlign="center"
-              placeholderTextColor="#264653"
+          }
+          InputRightElement={
+            <Icon
+              as={<Feather name="search" />}
+              size="md"
+              m={2}
+              _light={{
+                color: 'black',
+              }}
+              _dark={{
+                color: 'gray.300',
+              }}
             />
-          </View>
-          <TouchableOpacity>
-            <Feather
-              style={styles.featherIcon}
-              color="#264653"
-              name="search"
-              size={20}
-            />
-          </TouchableOpacity>
-        </View>
-        <Text />
-        <Text style={{color: 'red', fontSize: 24}}>
-          Location Maps will be displayed here
-        </Text>
-      </View>
+          }
+          placeholder="what are you looking for..." // mx={4}
+          _light={{
+            placeholderTextColor: 'blueGray.400',
+          }}
+          _dark={{
+            placeholderTextColor: 'blueGray.50',
+          }}
+        />
+      </Box>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    // backgroundColor: '#e5e5e5',
     flex: 1,
   },
   header: {

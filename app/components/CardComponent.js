@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Text} from 'native-base';
 import {COLORS} from '../../assets/colors';
 import Feather from 'react-native-vector-icons/Feather';
 import {hp, wp} from '../utils/dpTopx';
@@ -8,7 +9,7 @@ function CardComponent({cardStyle, cardItem, iconName}) {
   return (
     <View style={[styles.card, cardStyle]}>
       <View style={styles.rectRadius} cardStyle>
-        <Feather name={iconName} color="white" size={hp(30)} />
+        <Feather name={iconName} color="white" size={hp(20)} />
       </View>
       <View style={styles.texts}>
         <Text style={styles.title}>{cardItem.title}</Text>
@@ -41,10 +42,12 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     fontSize: 16,
     fontWeight: '700',
+    color: 'white',
   },
   subtitle: {
     fontFamily: 'Lato-Regular',
     fontSize: 14,
+    color: 'white',
   },
 });
 export default CardComponent;

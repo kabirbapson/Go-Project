@@ -1,10 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-export default function GoNewsPost() {
+export default function Messages() {
   return (
     <View>
-      <Text>GoNewsPost</Text>
+      <Text>Messages</Text>
     </View>
   );
 }

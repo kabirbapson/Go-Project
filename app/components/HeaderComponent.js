@@ -1,3 +1,4 @@
+import {Pressable} from 'native-base';
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -7,10 +8,12 @@ import Button from './Button';
 import ButtonComponent from './ButtonComponent';
 import TitleTextComponent from './HeaderTitle';
 
-function HeaderComponent({
+export default function HeaderComponent({
   title,
   titleColor,
   onProfilePress,
+  onMessagePress,
+  onNotificationPress,
   featherIconColor,
 }) {
   const sendTipsAlert = () => {
@@ -27,24 +30,28 @@ function HeaderComponent({
         <Text style={[styles.mainTitle, titleColor]}>{title}</Text>
       </View>
       <View style={styles.wrapProfile}>
-        <Feather
-          style={styles.featherIcon}
-          name="bell"
-          size={20}
-          color={featherIconColor}
-        />
-        <Feather
-          style={styles.featherIcon}
-          name="mail"
-          size={20}
-          color={featherIconColor}
-        />
-        <TouchableOpacity activeOpacity={0.9} onPress={onProfilePress}>
+        <Pressable onPress={onNotificationPress}>
+          <Feather
+            style={styles.featherIcon}
+            name="bell"
+            size={20}
+            color={featherIconColor}
+          />
+        </Pressable>
+        <Pressable onPress={onMessagePress}>
+          <Feather
+            style={styles.featherIcon}
+            name="mail"
+            size={20}
+            color={featherIconColor}
+          />
+        </Pressable>
+        <Pressable onPress={onProfilePress}>
           <Image
             style={styles.imageP}
             source={require('../../assets/images/kbb.jpg')}
           />
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   );
@@ -86,4 +93,3 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
-export default HeaderComponent;

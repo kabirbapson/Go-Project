@@ -8,9 +8,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 // screens
 // import Home from '../screens/Home';
-import GoAlert from '../screens/GoAlert';
-import GoInfo from '../screens/GoInfo';
-import GoNews from '../screens/GoNews';
+import Info from '../screens/Info';
+import News from '../screens/News';
+import Alert from '../screens/Alert';
 // import Location from '../screens/Location';
 // import Profile from '../screens/Profile';
 import {wp, hp} from '../utils/dpTopx';
@@ -24,15 +24,15 @@ export default function NavBottomBar() {
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, size, color}) => {
           let iconName;
-          if (route.name === 'Go-News') {
+          if (route.name === 'News') {
             iconName = focused ? 'newspaper' : 'newspaper';
             // size = focused ? size + 5 : size + 3;
             color = focused ? '#2A9D8F' : 'white';
-          } else if (route.name === 'Go-Info') {
+          } else if (route.name === 'Information') {
             iconName = focused ? 'street-view' : 'street-view';
             // size = focused ? size + 5 : size + 3;
             color = focused ? '#2A9D8F' : 'white';
-          } else if (route.name === 'Go-Alert') {
+          } else if (route.name === 'Alert') {
             iconName = focused
               ? 'exclamation-triangle'
               : 'exclamation-triangle';
@@ -66,19 +66,15 @@ export default function NavBottomBar() {
           alignSelf: 'center',
         },
       })}>
+      <Tab.Screen name="News" component={News} options={{headerShown: false}} />
       <Tab.Screen
-        name="Go-News"
-        component={GoNews}
+        name="Information"
+        component={Info}
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name="Go-Info"
-        component={GoInfo}
-        options={{headerShown: false}}
-      />
-      <Tab.Screen
-        name="Go-Alert"
-        component={GoAlert}
+        name="Alert"
+        component={Alert}
         options={{headerShown: false}}
       />
     </Tab.Navigator>

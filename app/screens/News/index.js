@@ -8,27 +8,29 @@ import {
   ScrollView,
 } from 'react-native';
 import {Spinner, Box, Skeleton, VStack, Center, FlatList} from 'native-base';
-import {COLORS} from '../../assets/colors';
-import {hp, wp} from '../utils/dpTopx';
-import CardComponent from '../components/CardComponent';
-import HeaderComponent from '../components/HeaderComponent';
-import NewsSmallCard from '../components/NewsSmallCard';
-import {HeaderTitle} from '../components/HeaderTitle';
+import {COLORS} from '../../../assets/colors';
+import {hp, wp} from '../../utils/dpTopx';
+
+import HeaderComponent from '../../components/HeaderComponent';
+import NewsSmallCard from '../../components/NewsSmallCard';
+import {HeaderTitle} from '../../components/HeaderTitle';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {decrement, fetchNewsPost, increment} from '../features/news/newsSlice';
-import {getNewsPost} from '../api/news/api.news';
-import {api} from '../api/config';
-import NewsFeaturing from '../components/NewsFeaturing';
+import {fetchNewsPost} from '../../features/news/newsSlice';
+import NewsFeaturing from '../../components/NewsFeaturing';
 
-export default function GoNews({navigation}) {
+export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
   const featuring = post[2];
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(fetchNewsPost());
-  }, []);
+  }, [dispatch]);
+
+  const handleNewsClick = postData => {
+    navigation.navigate('NewsPost', {postData});
+  };
 
   return (
     <View style={styles.container}>
@@ -51,17 +53,18 @@ export default function GoNews({navigation}) {
 
           {/* latestNews */}
           {featuring && (
-            <NewsFeaturing
-              image={featuring.cover}
-              title={featuring.title}
-              subtitle={featuring.subtitle}
-            />
+            <NewsFeaturing data={featuring} onPress={handleNewsClick} />
           )}
           {/* section card */}
 
-          {post.map(newsPost => (
-            <NewsSmallCard data={newsPost} />
-          ))}
+          {post.length > 0 &&
+            post.map(newsPost => (
+              <NewsSmallCard
+                key={newsPost.id}
+                data={newsPost}
+                onPress={handleNewsClick}
+              />
+            ))}
         </ScrollView>
       )}
     </View>
