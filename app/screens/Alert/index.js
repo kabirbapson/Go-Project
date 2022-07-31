@@ -58,7 +58,7 @@ export default function Alert({navigation}) {
   const renderItem = ({item, onPress}) => (
     <Item item={item} onPress={handleOptionPress} />
   );
-  const handleQuickAlert = () => navigation.navigate('Quick Alert');
+  const handleQuickAlert = () => navigation.navigate('Call');
   const handleSendTips = () => navigation.navigate('Send Tips');
 
   const handleOptionPress = action => {
@@ -113,7 +113,7 @@ export default function Alert({navigation}) {
           <View style={styles.headerButtons}>
             <ButtonComponent title="CALL" onPress={handleQuickAlert} />
             <ButtonComponent
-              title="QuICK ALERT"
+              title="QUICK ALERT"
               buttStyle={{backgroundColor: '#F4A261'}}
               onPress={handleSendTips}
             />

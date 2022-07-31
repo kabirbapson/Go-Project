@@ -7,7 +7,7 @@ export default function NewsSmallCard({data, onPress}) {
     <View style={{marginTop: hp(28)}}>
       <Pressable style={styles.otherNews} onPress={() => onPress(data)}>
         <Image
-          resizeMode="contain"
+          // resizeMode="contain"
           style={styles.otherNewsImage}
           source={{uri: data.cover}}
         />

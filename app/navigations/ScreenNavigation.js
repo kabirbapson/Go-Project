@@ -11,7 +11,7 @@ import Location from '../screens/Location';
 import Notifications from '../screens/Notifications';
 import Emergency from '../screens/Emergency';
 
-
+import Call from '../screens/Call';
 import QAlert from '../screens/QAlert';
 import SendTips from '../screens/SendTips';
 import Messages from '../screens/Messages';
@@ -82,6 +82,11 @@ export default function ScreenNavigation() {
       <Stack.Screen
         name="NewsPost"
         component={NewsPost}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Call"
+        component={Call}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
