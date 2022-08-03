@@ -13,48 +13,20 @@ import React from 'react';
 
 import HeaderBackButton from '../components/HeaderBackButton';
 import EmergencyContactCard from '../components/EmergencyContactCard';
-import BottomActionSheet from '../components/BottomActionSheet';
-import EmergencyDetail from '../components/EmergencyDetail';
-
-const dummyEmergencyData = [
-  {
-    id: 1,
-    title: 'Police Divisions',
-    data: [
-      {id: 1, title: 'Some Department'},
-      {id: 2, title: 'Second Department'},
-      {id: 3, title: 'Third Department'},
-    ],
-  },
-  {
-    id: 2,
-    title: 'Primary Health Care',
-    data: [
-      {id: 1, title: 'Some Department'},
-      {id: 2, title: 'Second Department'},
-      {id: 3, title: 'Third Department'},
-    ],
-  },
-];
+import {hp, wp} from '../utils/dpTopx';
+import StatusComponent from '../components/StatusComponent';
 
 export default function Status({route, navigation}) {
   const [service, setService] = React.useState('');
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleViewEmergencyDetail = emergencyData => {
-    setIsOpen(true);
-  };
 
   const handleBackButton = () => navigation.goBack();
 
   return (
     <Box p={'5'}>
       <HeaderBackButton
-        headerTitle={'What Happening'}
+        headerTitle={"What's Happening"}
         onBackButtonPress={handleBackButton}
       />
-      <Text mt={'5'} fontFamily={'Lato-Bold'} fontSize={'lg'}>
-        Location:
-      </Text>
       <Select
         selectedValue={service}
         minWidth="200"
@@ -67,21 +39,14 @@ export default function Status({route, navigation}) {
         mt={1}
         mb={5}
         onValueChange={itemValue => setService(itemValue)}>
-        <Select.Item label="Gombe State Nigeria..." value="gmb" />
+        <Select.Item label="Gombe State" value="gmb" />
+        <Select.Item label="Bauchi State" value="bch" />
+        <Select.Item label="Borno State" value="brn" />
+        <Select.Item label="Yobe State " value="yob" />
+        <Select.Item label="Adamawa State " value="adm" />
+        <Select.Item label="Taraba State " value="trb" />
       </Select>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {dummyEmergencyData.map(emergencyData => (
-          <EmergencyContactCard
-            key={emergencyData.id}
-            title={emergencyData.title}
-            data={emergencyData.data}
-            onItemPress={handleViewEmergencyDetail}
-          />
-        ))}
-      </ScrollView>
-      {isOpen && (
-        <EmergencyDetail isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      )}
+      <StatusComponent />
     </Box>
   );
 }
