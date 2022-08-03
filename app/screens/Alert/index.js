@@ -70,6 +70,7 @@ export default function Alert({navigation}) {
         navigateTo('Location');
         break;
       case 3:
+        navigateTo('Status');
         break;
       case 4:
         break;

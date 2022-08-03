@@ -170,6 +170,7 @@ export default function Call({route, navigation}) {
           borderBottomColor={'gray.500'}
           borderBottomWidth={'1'}
           mt={'4'}
+          mb={2}
           flexDir="row"
           // bg="#264653"
           rounded="lg">
@@ -192,73 +193,72 @@ export default function Call({route, navigation}) {
           </Text>
         </Box>
       </Box>
-      {/* dialPads */}
-      <Box
-        alignItems="center"
-        // justifyContent={'space-between'}
-        bg="purple.50"
-        // w={'90%'}
-        // mx={'1'}
-        // h={heightPercentageToDP('40%')}
-      >
-        <Box
-        // justifyContent="center"
-        // p={'1'}
-        // justifyContent={'space-between'}
-        >
-          <FlatList
-            numColumns={3}
-            data={dialPads}
-            keyExtractor={item => item.id}
-            // horizontal={true}
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({item}) => (
-              <Pressable
-                marginX={'8'}
-                marginY={1}
-                justifyContent={'center'}
-                alignItems={'center'}>
-                <Button
-                  style={{justifyContent: 'center', alignItems: 'center'}}
-                  onPress={() => console.log(item.title)}
-                  _text={{color: '#264653', fontSize: 20}}>
-                  {item.title}
-                </Button>
-              </Pressable>
-            )}
-          />
-        </Box>
 
-        {/* add some numver dialpad  */}
-      </Box>
-      <Box
-        // mt={'2'}
-        mb={'2'}
-        // pb={2}
-        // justifyContent={'center'}
-        // position={'absolute'}
-        bottom={'1'}
-        // alignItems="center"
-        alignSelf={'center'}>
+      <Box style={{backgroundColor: 'red'}}>
+        {/* dialPads */}
         <Box
           style={{
-            width: widthPercentageToDP('90%'),
-            height: heightPercentageToDP('5%'),
             alignItems: 'center',
-            justifyContent: 'space-around',
-          }}
-          flexDir="row"
-          bg="#264653"
-          rounded="lg">
-          <Text
-            marginX={'2'}
-            fontSize={'md'}
-            fontWeight={'medium'}
-            color={'warmGray.50'}
-            letterSpacing={'lg'}>
-            Dial
-          </Text>
+            justifyContent: 'space-between',
+            backgroundColor: 'purple',
+            marginTop: 3,
+            // height:
+          }}>
+          <Box
+          // justifyContent="center"
+          // p={'1'}
+          // justifyContent={'space-between'}
+          >
+            <FlatList
+              numColumns={3}
+              data={dialPads}
+              keyExtractor={item => item.id}
+              // horizontal={true}
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({item}) => (
+                <Pressable
+                  marginX={'10'}
+                  marginY={1}
+                  justifyContent={'center'}
+                  alignItems={'center'}>
+                  <Button
+                    style={{justifyContent: 'center', alignItems: 'center'}}
+                    onPress={() => console.log(item.title)}
+                    _text={{color: '#264653', fontSize: 20}}>
+                    {item.title}
+                  </Button>
+                </Pressable>
+              )}
+            />
+          </Box>
+
+          {/* add some numver dialpad  */}
+        </Box>
+        <Box
+          // mt={'2'}
+          mb={'2'}
+          alignSelf={'center'}>
+          <Box
+            alignSelf={'center'}
+            style={{
+              width: widthPercentageToDP('90%'),
+              height: heightPercentageToDP('5%'),
+              alignItems: 'center',
+              justifyContent: 'space-around',
+            }}
+            flexDir="row"
+            bg="#264653"
+            rounded="lg">
+            <Text
+              marginX={'2'}
+              fontSize={'md'}
+              fontWeight={'medium'}
+              color={'warmGray.50'}
+              letterSpacing={'lg'}>
+              Dial
+            </Text>
+          </Box>
         </Box>
       </Box>
     </Box>

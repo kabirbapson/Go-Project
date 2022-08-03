@@ -10,6 +10,7 @@ import Home from '../screens/Home';
 import Location from '../screens/Location';
 import Notifications from '../screens/Notifications';
 import Emergency from '../screens/Emergency';
+import Status from '../screens/Status';
 
 import Call from '../screens/Call';
 import QAlert from '../screens/QAlert';
@@ -68,6 +69,13 @@ export default function ScreenNavigation() {
       <Stack.Screen
         name="Emergency"
         component={Emergency}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Status"
+        component={Status}
         options={{
           headerShown: false,
         }}
