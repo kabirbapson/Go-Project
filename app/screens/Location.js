@@ -9,7 +9,6 @@ import {Box, Pressable, Button, Center, Input, Icon} from 'native-base';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
 import HeaderComponent from '../components/HeaderComponent';
-import Feather from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../assets/colors';
 import HeaderBackButton from '../components/HeaderBackButton';
 
