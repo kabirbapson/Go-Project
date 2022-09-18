@@ -68,7 +68,7 @@ export default function Alert({navigation}) {
         break;
       case 2:
         navigateTo('Location');
-        break;
+        break; 
       case 3:
         break;
       case 4:
