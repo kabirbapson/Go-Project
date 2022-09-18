@@ -6,12 +6,13 @@ export const fetchNewsPost = createAsyncThunk(
   async () => {
     const response = await api.getNewsPost();
     if (!response.ok) {
-      
-      return []
+      return [];
     }
     return response.data;
   },
 );
+
+
 
 export const newsSlice = createSlice({
   name: 'news',
@@ -31,3 +32,5 @@ export const newsSlice = createSlice({
 });
 
 export default newsSlice.reducer;
+
+
