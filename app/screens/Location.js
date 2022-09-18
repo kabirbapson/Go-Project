@@ -11,7 +11,7 @@ import {hp, wp} from '../utils/dpTopx';
 import HeaderComponent from '../components/HeaderComponent';
 import {COLORS} from '../../assets/colors';
 import HeaderBackButton from '../components/HeaderBackButton';
-
+import Feather from 'react-native-vector-icons/Feather'
 export const RightIcon = ({onPress}) => (
   <Center w={'10'} h={'10'} borderRadius={100} backgroundColor={'darkBlue.800'}>
     <Pressable onPress={onPress}>
@@ -25,7 +25,10 @@ export default function Location({route, navigation}) {
     console.log('right button');
   };
 
-  const handleBackButton = () => navigation.goBack();
+  const handleBackButton = () => {
+   console.log('object in location')
+    navigation.goBack()
+  }
 
   return (
     <ImageBackground

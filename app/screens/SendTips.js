@@ -46,7 +46,7 @@ export default function SendAlert({navigation}) {
       </Text>
       <Input
         p={'2'}
-        fontFamily={'Lato-Medium'}
+        // fontFamily={'Lato-Medium'}
         fontSize={'md'}
         placeholder={'Category: example Fire, Hurricane, ...'}
         variant={'underlined'}
@@ -56,7 +56,7 @@ export default function SendAlert({navigation}) {
       </Text>
       <Input
         p={'2'}
-        fontFamily={'Lato-Medium'}
+        // fontFamily={'Lato-Medium'}
         fontSize={'md'}
         placeholder={'Enter information...'}
         multiline={true}

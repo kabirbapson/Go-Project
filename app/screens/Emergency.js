@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {
   Box,
   Text,
@@ -47,12 +47,16 @@ export default function Emergency({route, navigation}) {
   const handleBackButton = () => navigation.goBack();
 
   return (
-    <Box p={'5'}>
+    <SafeAreaView >
+
+    <Box px={'2'} >
       <HeaderBackButton
         headerTitle={'List of emergency contact'}
         onBackButtonPress={handleBackButton}
       />
-      <Text mt={'5'} fontFamily={'Lato-Bold'} fontSize={'lg'}>
+      <Text mt={'5'}
+        // fontFamily={'Lato-Bold'}
+        fontSize={'lg'}>
         Location:
       </Text>
       <Select
@@ -82,7 +86,8 @@ export default function Emergency({route, navigation}) {
       {isOpen && (
         <EmergencyDetail isOpen={isOpen} onClose={() => setIsOpen(false)} />
       )}
-    </Box>
+      </Box>
+    </SafeAreaView>
   );
 }
 

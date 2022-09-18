@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import {Spinner, Box, Skeleton, VStack, Center, FlatList} from 'native-base';
 import {COLORS} from '../../../assets/colors';
@@ -21,7 +22,7 @@ import NewsFeaturing from '../../components/NewsFeaturing';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
-  const featuring = {}
+  const featuring = {};
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -33,48 +34,50 @@ export default function News({navigation}) {
   };
 
   return (
-    <View style={styles.container}>
-      <HeaderComponent
-        title={'GOMBE\nNEWS'}
-        titleColor={styles.titleColor}
-        featherIconColor="#216131"
-        onProfilePress={() => navigation.navigate('Profile')}
-      />
-      {loading ? (
-        <Center>
-          <Spinner mt="10" size={'sm'} />
-        </Center>
-      ) : (
-        <ScrollView
-          style={styles.scrollView}
-          showsVerticalScrollIndicator={false}>
-          {/* header title */}
-          <HeaderTitle textTitle={'Breaking News'} />
+    <SafeAreaView style={styles.container}>
+      <View >
+        <HeaderComponent
+          title={'GOMBE\nNEWS'}
+          titleColor={styles.titleColor}
+          featherIconColor="#216131"
+          onProfilePress={() => navigation.navigate('Profile')}
+        />
+        {loading ? (
+          <Center>
+            <Spinner mt="10" size={'sm'} />
+          </Center>
+        ) : (
+          <ScrollView
+            style={styles.scrollView}
+            showsVerticalScrollIndicator={false}>
+            {/* header title */}
+            <HeaderTitle textTitle={'Breaking News'} />
 
-          {/* latestNews */}
-          {featuring && (
-            <NewsFeaturing data={featuring} onPress={handleNewsClick} />
-          )}
-          {/* section card */}
+            {/* latestNews */}
+            {featuring && (
+              <NewsFeaturing data={featuring} onPress={handleNewsClick} />
+            )}
+            {/* section card */}
 
-          {post.length > 0 &&
-            post.map(newsPost => (
-              <NewsSmallCard
-                key={newsPost.id}
-                data={newsPost}
-                onPress={handleNewsClick}
-              />
-            ))}
-        </ScrollView>
-      )}
-    </View>
+            {post.length > 0 &&
+              post.map(newsPost => (
+                <NewsSmallCard
+                  key={newsPost.id}
+                  data={newsPost}
+                  onPress={handleNewsClick}
+                />
+              ))}
+          </ScrollView>
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F8F9FA',
-    paddingHorizontal: 25,
+    paddingHorizontal: hp(20),
     paddingTop: 20,
   },
   titleColor: {

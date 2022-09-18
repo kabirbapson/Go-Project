@@ -19,16 +19,18 @@ export default function HeaderBackButton({
 }) {
   return (
     <HStack justifyContent={'space-between'} alignItems={'center'}>
-      <Center
-        w={'10'}
-        h={'10'}
-        borderRadius={100}
-        backgroundColor={'darkBlue.800'}>
-        <Pressable onPress={onBackButtonPress}>
+      <Pressable onPress={onBackButtonPress}>
+        <Center
+          w={'10'}
+          h={'10'}
+          borderRadius={100}
+          backgroundColor={'darkBlue.800'}>
           <Feather name="arrow-left" size={25} color={COLORS.white} />
-        </Pressable>
-      </Center>
-      <Text fontFamily={'Lato-Bold'} fontSize={'md'}>
+        </Center>
+      </Pressable>
+      <Text
+        // fontFamily={'Lato-Bold'}
+        fontSize={'md'}>
         {headerTitle}
       </Text>
       {rightIcon && rightIcon}
