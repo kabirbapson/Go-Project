@@ -5,7 +5,10 @@ export const fetchNewsPost = createAsyncThunk(
   'news/fetchNewsPost',
   async () => {
     const response = await api.getNewsPost();
-
+    if (!response.ok) {
+      
+      return []
+    }
     return response.data;
   },
 );

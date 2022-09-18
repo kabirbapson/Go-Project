@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   title: {
-    fontFamily: 'Lato-Black',
+    // fontFamily: 'Lato-Black',
     marginVertical: 5,
     fontSize: 16,
     fontWeight: '700',
     color: 'white',
   },
   subtitle: {
-    fontFamily: 'Lato-Regular',
+    // fontFamily: 'Lato-Regular',
     fontSize: 14,
     color: 'white',
   },

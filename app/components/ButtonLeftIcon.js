@@ -10,7 +10,9 @@ export default function ButtonLeftIcon({text, onPress}) {
       onPress={onPress}
       flexDir={'row'}
       my={2}>
-      <Text fontSize={'lg'} fontFamily={'Lato-Regular'}>
+      <Text fontSize={'lg'}
+        // fontFamily={'Lato-Regular'}
+      >
         {text}
       </Text>
       <Feather name="chevron-right" size={25} />

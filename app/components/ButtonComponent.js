@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 10,
-    fontFamily: 'Lato-Bold',
+    // fontFamily: 'Lato-Bold',
     color: 'white',
   },
 });

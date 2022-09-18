@@ -8,7 +8,9 @@ import ButtonLeftIcon from './ButtonLeftIcon';
 export default function EmergencyContactCard({title, data = [], onItemPress}) {
   return (
     <Box p={1}>
-      <Text fontFamily={'Lato-Bold'} fontSize={'xl'}>
+      <Text
+        // fontFamily={'Lato-Bold'}
+        fontSize={'xl'}>
         {title}
       </Text>
       <Divider my={1} />
