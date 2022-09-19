@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     marginVertical: hp(10),
     fontSize: 18,
-    fontFamily: 'Lato-Bold',
+    // fontFamily: 'Lato-Bold',
   },
   headSubTitle: {
     color: COLORS.white,

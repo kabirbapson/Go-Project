@@ -12,8 +12,6 @@ export const fetchNewsPost = createAsyncThunk(
   },
 );
 
-
-
 export const newsSlice = createSlice({
   name: 'news',
   initialState: {post: [], loading: false},
@@ -32,5 +30,3 @@ export const newsSlice = createSlice({
 });
 
 export default newsSlice.reducer;
-
-
