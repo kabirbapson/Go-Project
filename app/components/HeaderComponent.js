@@ -1,4 +1,4 @@
-import {Pressable} from 'native-base';
+import {Circle, Pressable} from 'native-base';
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -46,12 +46,14 @@ export default function HeaderComponent({
             color={featherIconColor}
           />
         </Pressable>
-        <Pressable onPress={onProfilePress}>
-          <Image
-            style={styles.imageP}
-            source={require('../../assets/images/kbb.jpg')}
-          />
-        </Pressable>
+        <Circle bg={'#216131'} size={hp(8)}>
+          <Pressable onPress={onProfilePress}>
+            <Image
+              style={styles.imageP}
+              source={require('../../assets/images/kbb.jpg')}
+            />
+          </Pressable>
+        </Circle>
       </View>
     </View>
   );
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
   wrapProfile: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems:'center'
+    alignItems: 'center',
   },
   featherIcon: {
     marginHorizontal: 5,

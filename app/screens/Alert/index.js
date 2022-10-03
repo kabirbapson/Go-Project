@@ -67,7 +67,7 @@ export default function Alert({navigation}) {
         navigateTo('Emergency');
         break;
       case 2:
-        navigateTo('Location');
+        navigateTo('Send Tips');
         break;
       case 3:
         navigateTo('Status');
