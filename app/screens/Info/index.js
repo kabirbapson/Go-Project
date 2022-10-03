@@ -105,12 +105,14 @@ export default function Info({navigation}) {
               keyExtractor={item => item.id}
             />
           </Box>
-
+ 
           <Box my={2}>
             <FlatList
               data={LatestInfo}
               renderItem={({item}) => {
-                return <InfoSmallCircle title={item.title} subTitile={ item.cover} />;
+                return (
+                  <InfoSmallCircle title={item.title} subTitile={item.cover} />
+                );
               }}
               keyExtractor={item => item.id}
             />
