@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   wrapProfile: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems:'center'
   },
   featherIcon: {
     marginHorizontal: 5,

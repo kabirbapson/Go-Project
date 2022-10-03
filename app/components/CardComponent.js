@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Text} from 'native-base';
 import {COLORS} from '../../assets/colors';
-import Feather from 'react-native-vector-icons/Feather';
+import Feather from 'react-native-vector-icons/MaterialCommunityIcons';
 import {hp, wp} from '../utils/dpTopx';
 
 function CardComponent({cardStyle, cardItem, iconName}) {

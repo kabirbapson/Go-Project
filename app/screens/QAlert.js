@@ -22,8 +22,13 @@ import * as image from '../utils/image';
 export default function QAlert({navigation}) {
   const [service, setService] = React.useState('');
   const [incidentImages, setIncidentImages] = React.useState([]);
+  const [additionInfo, setAdditionInfo] = React.useState('');
+  const [category, setCategory] = React.useState('');
 
   const handleBackButton = () => navigation.goBack();
+
+  const handleSend = () =>
+    console.log(category, service, incidentImages.entries(), additionInfo);
 
   const handleAddIncidentImage = async () => {
     const pickImage = await image.GetImageFromGallery();
@@ -50,9 +55,11 @@ export default function QAlert({navigation}) {
         fontSize={'md'}
         placeholder={'Category: example Fire, Hurricane, ...'}
         variant={'underlined'}
+        value={category}
+        onChangeText={itemValue => setCategory(itemValue)}
       />
       <Text mt={'10'} fontFamily={'Lato-Bold'} fontSize={'lg'}>
-        Additional Information:{' '}
+        Additional Information:
       </Text>
       <Input
         p={'2'}
@@ -62,14 +69,17 @@ export default function QAlert({navigation}) {
         multiline={true}
         numberOfLines={4}
         textAlignVertical={'top'}
+        value={additionInfo}
+        onChangeText={itemValue => setAdditionInfo(itemValue)}
+        // onChange={itemValue => setAdditionInfo(itemValue)}
       />
       <Pressable
         mt={'4'}
         flexDir="row"
         alignItems={'center'}
         onPress={handleAddIncidentImage}>
-        <Feather name={'camera'} size={30} />
-        <Text px={'5'}>Add image ( optional )</Text>
+        <Feather name={'camera'} color={'black'} size={25} />
+        <Text px={'3'}>Add Image (Optional)</Text>
       </Pressable>
       <Box mt={'5'}>
         <FlatList
@@ -110,7 +120,9 @@ export default function QAlert({navigation}) {
           <Select.Item label="Backend Development" value="backend" />
         </Select>
       </Box>
-      <Button mt={'5'}>Send</Button>
+      <Button bg={'#264653'}  onPress={() => handleSend()} mt={'10%'}>
+        Send
+      </Button>
     </Box>
   );
 }

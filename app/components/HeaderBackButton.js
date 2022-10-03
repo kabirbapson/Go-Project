@@ -24,11 +24,12 @@ export default function HeaderBackButton({
           w={'10'}
           h={'10'}
           borderRadius={100}
-          backgroundColor={'darkBlue.800'}>
+          backgroundColor={'#264653'}>
           <Feather name="arrow-left" size={25} color={COLORS.white} />
         </Center>
       </Pressable>
       <Text
+        bold
         // fontFamily={'Lato-Bold'}
         fontSize={'md'}>
         {headerTitle}
