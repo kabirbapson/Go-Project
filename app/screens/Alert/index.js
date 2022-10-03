@@ -113,7 +113,7 @@ export default function Alert({navigation}) {
           </View>
           <View>
             <View style={styles.headerButtons}>
-              <ButtonComponent title="CALL" onPress={handleQuickAlert} />
+              <ButtonComponent title="Call hh" onPress={handleQuickAlert} />
               <ButtonComponent
                 title="QUICK ALERT"
                 buttStyle={{backgroundColor: '#F4A261'}}
