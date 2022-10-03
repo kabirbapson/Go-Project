@@ -106,7 +106,7 @@ export default function Info({navigation}) {
             />
           </Box>
  
-          <Box my={2}>
+          <Box my={2}> 
             <FlatList
               data={LatestInfo}
               renderItem={({item}) => {
