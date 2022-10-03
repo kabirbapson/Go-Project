@@ -17,7 +17,7 @@ export default function SettingsSubTexts({onPress, catText, iconName, color}) {
         <Feather
           name={iconName}
           size={30}
-          color={iconName === 'toggle-right' ? 'red' : '#000000'}
+          color={iconName === 'toggle-right' ? '#E9C000' : '#000000'}
         />
       </View>
     </TouchableOpacity>

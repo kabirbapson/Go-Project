@@ -9,7 +9,7 @@ export default function Notifications({navigation}) {
   const handleBackButton = () => navigation.goBack();
 
   return (
-    <Box flex={'1'} px={'4'} pt={'2'}>
+    <Box flex={'1'} p={5}>
       <HeaderBackButton
         onBackButtonPress={handleBackButton}
         headerTitle={'Notifications'}

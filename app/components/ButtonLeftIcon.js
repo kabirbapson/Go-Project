@@ -9,13 +9,13 @@ export default function ButtonLeftIcon({text, onPress}) {
       justifyContent={'space-between'}
       onPress={onPress}
       flexDir={'row'}
-      my={2}>
-      <Text fontSize={'lg'}
+      my={1}>
+      <Text fontSize={'sm'}
         // fontFamily={'Lato-Regular'}
       >
         {text}
       </Text>
-      <Feather name="chevron-right" size={25} />
+      <Feather  name="chevron-right" size={25} color={'black'} />
     </Pressable>
   );
 }

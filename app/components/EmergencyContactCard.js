@@ -8,12 +8,12 @@ import ButtonLeftIcon from './ButtonLeftIcon';
 export default function EmergencyContactCard({title, data = [], onItemPress}) {
   return (
     <Box p={1}>
-      <Text
+      <Text fontWeight={700}
         // fontFamily={'Lato-Bold'}
-        fontSize={'xl'}>
+        fontSize={20}>
         {title}
       </Text>
-      <Divider my={1} />
+      <Divider my={1} bg={'#264653'} />
       {data.map(item => (
         <ButtonLeftIcon
           key={item.id}
