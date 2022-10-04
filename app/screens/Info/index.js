@@ -109,7 +109,7 @@ export default function Info({navigation}) {
           <Box my={2}> 
             <FlatList
               data={LatestInfo}
-              renderItem={({item}) => {
+              renderItem={({item}) => { 
                 return (
                   <InfoSmallCircle title={item.title} subTitile={item.cover} />
                 );
