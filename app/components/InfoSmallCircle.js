@@ -6,7 +6,7 @@ import logoPng from './../../assets/images/logopng.png';
 export default function InfoSmallCircle({title, subTitile, onPress}) {
   return (
     <View style={{marginTop: hp(28)}}>
-      <Pressable style={styles.otherNews} onPress={() => onPress(data)}>
+      <Pressable style={styles.otherNews} onPress={() => onPress}>
         <Image
           resizeMode="contain"
           style={styles.otherNewsImage}
@@ -14,7 +14,7 @@ export default function InfoSmallCircle({title, subTitile, onPress}) {
         />
 
         <Box justifyContent={'center'} alignItems={'center'} m={2}>
-          <Text >{title}</Text>
+          <Text>{title}</Text>
           <Text>{subTitile}</Text>
         </Box>
       </Pressable>

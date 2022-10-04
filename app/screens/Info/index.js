@@ -1,24 +1,25 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Image, StyleSheet, FlatList, SafeAreaView} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   Text,
   Box,
-  Pressable,
-  Center,
+  FlatList,
   Input,
   Icon,
   Avatar,
+  VStack,
+  Image,
+  HStack,
   ScrollView,
 } from 'native-base';
 import {COLORS} from '../../../assets/colors';
 import {hp, wp} from '../../utils/dpTopx';
-import CardComponent from '../../components/CardComponent';
 import HeaderComponent from '../../components/HeaderComponent';
-import {HeaderTitle} from '../../components/HeaderTitle';
-import ButtonComponent from '../../components/ButtonComponent';
 import Feather from 'react-native-vector-icons/Feather';
 import InfoSmallCircle from '../../components/InfoSmallCircle';
+import logoPng from './../../../assets/images/logopng.png';
+import RecentCard from '../../components/Info/RecentCard';
 
 export default function Info({navigation}) {
   const LatestInfo = [
@@ -26,14 +27,20 @@ export default function Info({navigation}) {
     {id: 2, cover: 'goje', title: 'Gombe 3G'},
     {id: 3, cover: 'goje', title: 'Gombe 3G'},
     {id: 4, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
+    {id: 5, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
+    {id: 6, cover: 'goje', title: 'Gombe 3G'},
+    {id: 7, cover: 'goje', title: 'Gombe 3G'},
+    {id: 8, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
   ];
+
+  const RenderRecent = ({}) => <RecentCard />;
+  // const RenderSearch = ({}) => <RecentCard />
 
   // const renderItem = () => {
   //   <InfoSmallCircle data={} />
   // }
   return (
-    <SafeAreaView style={{flex: 1}}>
-      {/* <View style={styles.container}> */}
+    <Box safeArea flex={1}>
       <Box _text={{color: '#216131'}} style={styles.header}>
         <HeaderComponent
           title={'GOMBE\nINFO'}
@@ -44,25 +51,16 @@ export default function Info({navigation}) {
           onNotificationPress={() => navigation.navigate('Notifications')}
         />
       </Box>
-      <Center>
-        <Box
-          // bg={'red.100'}
-          w={'60%'}
-          // justifyContent={'center'}
-          // alignItems={'center'}
-        >
+      <ScrollView>
+        <VStack px="5" space="10" mt="20">
           <Text
             textAlign={'center'}
-            my={'2'}
+            px="20"
             fontFamily={'Lato-Bold'}
             fontSize={'md'}>
             Welcome to Gombe state information desk!
           </Text>
-        </Box>
-        <Box
-          w={'90%'}
-          // bg={'red.100'}
-        >
+
           <Input
             placeholder="Search for information..."
             width="100%"
@@ -80,46 +78,25 @@ export default function Info({navigation}) {
               />
             }
           />
-          <Box my={2}>
-            <FlatList
-              horizontal={true}
-              data={LatestInfo}
-              renderItem={({item}) => {
-                return (
-                  <Box justifyContent={'center'} alignItems={'center'} m={2}>
-                    <Avatar
-                      size="48px"
-                      name={
-                        <Feather name="search" color={'red'} size={hp(20)} />
-                      }
-                      // source={{
-                      //   uri: item.cover,
-                      // }}
-                    />
-                    <Text isTruncated maxW={120}>
-                      {item.title}
-                    </Text>
-                  </Box>
-                );
-              }}
-              keyExtractor={item => item.id}
-            />
-          </Box>
- 
-          <Box my={2}> 
-            <FlatList
-              data={LatestInfo}
-              renderItem={({item}) => { 
-                return (
-                  <InfoSmallCircle title={item.title} subTitile={item.cover} />
-                );
-              }}
-              keyExtractor={item => item.id}
-            />
-          </Box>
+        </VStack>
+
+        {/* recent card  */}
+        <Box py="5" px="5">
+          <FlatList
+            horizontal={true}
+            data={LatestInfo}
+            renderItem={({item}) => <RecentCard />}
+            keyExtractor={item => item.id}
+          />
         </Box>
-      </Center>
-    </SafeAreaView>
+
+        {/* searchhh result  */}
+
+        {LatestInfo.map(item => (
+          <InfoSmallCircle key={item.id} />
+        ))}
+      </ScrollView>
+    </Box>
   );
 }
 const styles = StyleSheet.create({
@@ -135,6 +112,11 @@ const styles = StyleSheet.create({
   },
   headerTexts: {
     margin: hp(10),
+  },
+  otherNewsImage: {
+    width: wp(80),
+    height: hp(70),
+    borderRadius: 10,
   },
   headTitle: {
     color: COLORS.white,
