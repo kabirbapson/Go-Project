@@ -77,7 +77,7 @@ export default function Info({navigation}) {
                 as={<Feather name="search" />}
               />
             }
-          />
+          /> 
         </VStack>
 
         {/* recent card  */}
