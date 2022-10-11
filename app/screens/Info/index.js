@@ -52,7 +52,7 @@ export default function Info({navigation}) {
         />
       </Box>
       <ScrollView>
-        <VStack px="5" space="10" mt="20">
+        <VStack px="5" space="5" mt="5">
           <Text
             textAlign={'center'}
             px="20"
@@ -77,7 +77,7 @@ export default function Info({navigation}) {
                 as={<Feather name="search" />}
               />
             }
-          /> 
+          />
         </VStack>
 
         {/* recent card  */}
@@ -93,7 +93,13 @@ export default function Info({navigation}) {
         {/* searchhh result  */}
 
         {LatestInfo.map(item => (
-          <InfoSmallCircle key={item.id} />
+          <InfoSmallCircle
+            key={item.id}
+            title={'Gombe State Government'}
+            subTitile={
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mollis scelerisque fusce sed ac faucibus varius magna nisl. Scelerisque eu proin.'
+            }
+          />
         ))}
       </ScrollView>
     </Box>
