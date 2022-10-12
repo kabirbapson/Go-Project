@@ -61,7 +61,7 @@ export default function Info({navigation}) {
           </Text>
           <Input
             value={searchInfo}
-            onChangeText={e => onChange()}
+            onChangeText={e => onChange(e)}
             placeholder="Search for information..."
             width="100%"
             borderRadius="4"
