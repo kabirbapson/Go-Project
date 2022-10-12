@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   Text,
@@ -7,10 +7,7 @@ import {
   FlatList,
   Input,
   Icon,
-  Avatar,
   VStack,
-  Image,
-  HStack,
   ScrollView,
 } from 'native-base';
 import {COLORS} from '../../../assets/colors';
@@ -21,24 +18,26 @@ import InfoSmallCircle from '../../components/InfoSmallCircle';
 import logoPng from './../../../assets/images/logopng.png';
 import RecentCard from '../../components/Info/RecentCard';
 
+const LatestInfo = [
+  {id: 1, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
+  {id: 2, cover: 'goje', title: 'Gombe 3G'},
+  {id: 3, cover: 'goje', title: 'Gombe 3G'},
+  {id: 4, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
+  {id: 5, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
+  {id: 6, cover: 'goje', title: 'Gombe 3G'},
+  {id: 7, cover: 'goje', title: 'Gombe 3G'},
+  {id: 8, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
+];
+
 export default function Info({navigation}) {
-  const LatestInfo = [
-    {id: 1, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
-    {id: 2, cover: 'goje', title: 'Gombe 3G'},
-    {id: 3, cover: 'goje', title: 'Gombe 3G'},
-    {id: 4, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
-    {id: 5, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
-    {id: 6, cover: 'goje', title: 'Gombe 3G'},
-    {id: 7, cover: 'goje', title: 'Gombe 3G'},
-    {id: 8, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
-  ];
+  const [showRecent, setShowRecent] = useState(true);
+  const [searchInfo, setSearchInfo] = useState('');
 
-  const RenderRecent = ({}) => <RecentCard />;
-  // const RenderSearch = ({}) => <RecentCard />
-
-  // const renderItem = () => {
-  //   <InfoSmallCircle data={} />
-  // }
+  const onChange = e => {
+    setSearchInfo(e);
+    setShowRecent(false);
+    console.log(searchInfo);
+  };
   return (
     <Box safeArea flex={1}>
       <Box _text={{color: '#216131'}} style={styles.header}>
@@ -60,8 +59,9 @@ export default function Info({navigation}) {
             fontSize={'md'}>
             Welcome to Gombe state information desk!
           </Text>
-
           <Input
+            value={searchInfo}
+            onChangeText={e => onChange()}
             placeholder="Search for information..."
             width="100%"
             borderRadius="4"
@@ -81,14 +81,16 @@ export default function Info({navigation}) {
         </VStack>
 
         {/* recent card  */}
-        <Box py="5" px="5">
-          <FlatList
-            horizontal={true}
-            data={LatestInfo}
-            renderItem={({item}) => <RecentCard />}
-            keyExtractor={item => item.id}
-          />
-        </Box>
+        {showRecent && (
+          <Box py="5" px="5">
+            <FlatList
+              horizontal={true}
+              data={LatestInfo}
+              renderItem={({item}) => <RecentCard />}
+              keyExtractor={item => item.id}
+            />
+          </Box>
+        )}
 
         {/* searchhh result  */}
 
