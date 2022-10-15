@@ -56,6 +56,7 @@ export default function QAlert({navigation}) {
         value={additionInfo}
         onChangeText={itemValue => setAdditionInfo(itemValue)}
         // onChange={itemValue => setAdditionInfo(itemValue)}
+        
       />
       <Pressable
         mt={'4'}
@@ -72,7 +73,7 @@ export default function QAlert({navigation}) {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           renderItem={({item}) => (
-            <Box ml={'4'}>
+            <Box ml={'4'}> 
               <Image
                 source={{uri: item.path}}
                 alt={'user image'}
