@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   Text,
@@ -19,14 +19,54 @@ import logoPng from './../../../assets/images/logopng.png';
 import RecentCard from '../../components/Info/RecentCard';
 
 const LatestInfo = [
-  {id: 1, cover: 'goje', title: 'Gombe'},
-  {id: 2, cover: 'goje', title: 'Gombe 3G'},
-  {id: 3, cover: 'goje', title: 'Gombe 3GG'},
-  {id: 4, cover: 'goje', title: 'Gombe fgfg'},
-  {id: 5, cover: 'goje', title: 'Gombe sfggseg'},
-  {id: 6, cover: 'goje', title: 'Gombe 4Gg'},
-  {id: 7, cover: 'goje', title: 'Gombe 5Ghh'},
-  {id: 8, cover: 'goje', title: 'Gombe rfgwergfs'},
+  {
+    id: 1,
+    story: 'gojess',
+    title: 'Gombe',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIXXe1vXb7TIcYFA7hA-OdmjEsUOl4kzKdg&usqp=CAU',
+  },
+  {
+    id: 2,
+    story: 'goje',
+    title: 'Gombe 3G',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiD2SyavtfKRJPygOyaXvyQZJO7W1oAsqvWw&usqp=CAU',
+  },
+  {
+    id: 3,
+    story: 'goje',
+    title: 'Gombe 3GG',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWaeptwyUAimiDG8zjXuHcqf9TmOny-bUqyA&usqp=CAU',
+  },
+  {
+    id: 4,
+    story: 'goje',
+    title: 'Gombe fgfg',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5sP-wCFFJ4ShW_9B2lR8Oqh3IUxqNBMranw&usqp=CAU',
+  },
+  {
+    id: 5,
+    story: 'goje',
+    title: 'Gombe sfggseg',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfb-2pNLxHgalLq4NMOZyZppfSI8y7UxfHeA&usqp=CAU',
+  },
+  {
+    id: 6,
+    story: 'goje',
+    title: 'Gombe 4Gg',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6tFeHEa2KY-JAEgrcbGe_iL4fWRcWlXZ4g&usqp=CAU',
+  },
+  {
+    id: 7,
+    story: 'goje',
+    title: 'Gombe 5Ghh',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkGHIJjR-nq-GT3HzK9bXmAcKXSzFHLpm08Q&usqp=CAU',
+  },
+  {
+    id: 8,
+    story: 'goje',
+    title: 'Gombe rfgwergfs',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIXXe1vXb7TIcYFA7hA-OdmjEsUOl4kzKdg&usqp=CAU',
+  },
 ];
 
 export default function Info({navigation}) {
@@ -56,9 +96,6 @@ export default function Info({navigation}) {
     }
   };
 
-  useEffect(() => {
-    setShowRecent(true);
-  }, []);
   return (
     <Box safeArea flex={1}>
       <Box _text={{color: '#216131'}} style={styles.header}>
@@ -123,10 +160,11 @@ export default function Info({navigation}) {
 
         {lists.map(item => (
           <InfoSmallCircle
-            onPress={() => navigation.navigate('ReadPost')}
+            onPress={() => navigation.navigate('ReadPost', {post: item})}
             key={item.id}
-            title={item.cover}
-            subTitile={item.title}
+            img={item.img}
+            title={item.title}
+            story={item.story}
           />
         ))}
       </ScrollView>

@@ -40,34 +40,18 @@ export default function QAlert({navigation}) {
   return (
     <Box p={'5'}>
       <HeaderBackButton
-        headerTitle={'Send A Quick Alert'}
+        headerTitle={"Share What'\s Happening"}
         onBackButtonPress={handleBackButton}
       />
-      <Box mt={'5'}>
-        <LocationSelector />
-      </Box>
-      <Text mt={'10'} fontFamily={'Lato-Bold'} fontSize={'lg'}>
-        Category:{' '}
-      </Text>
+      
       <Input
+        mt={5}
         p={'2'}
         fontFamily={'Lato-Medium'}
         fontSize={'md'}
-        placeholder={'Category: example Fire, Hurricane, ...'}
-        variant={'underlined'}
-        value={category}
-        onChangeText={itemValue => setCategory(itemValue)}
-      />
-      <Text mt={'10'} fontFamily={'Lato-Bold'} fontSize={'lg'}>
-        Additional Information:
-      </Text>
-      <Input
-        p={'2'}
-        fontFamily={'Lato-Medium'}
-        fontSize={'md'}
-        placeholder={'Enter information...'}
+        placeholder={'What\'s happening in your area?'}
         multiline={true}
-        numberOfLines={4}
+        numberOfLines={10}
         textAlignVertical={'top'}
         value={additionInfo}
         onChangeText={itemValue => setAdditionInfo(itemValue)}
@@ -100,27 +84,8 @@ export default function QAlert({navigation}) {
           )}
         />
       </Box>
-      <Box>
-        <Text mt={'5'}>Send To:</Text>
-        <Select
-          selectedValue={service}
-          minWidth="200"
-          accessibilityLabel="Choose Service"
-          placeholder="Choose Service"
-          _selectedItem={{
-            bg: 'teal.600',
-            endIcon: <CheckIcon size="5" />,
-          }}
-          mt={1}
-          onValueChange={itemValue => setService(itemValue)}>
-          <Select.Item label="UX Research" value="ux" />
-          <Select.Item label="Web Development" value="web" />
-          <Select.Item label="Cross Platform Development" value="cross" />
-          <Select.Item label="UI Designing" value="ui" />
-          <Select.Item label="Backend Development" value="backend" />
-        </Select>
-      </Box>
-      <Button bg={'#264653'}  onPress={() => handleSend()} mt={'10%'}>
+      
+      <Button bg={'#264653'} onPress={() => handleSend()} mt={'10%'}>
         Send
       </Button>
     </Box>

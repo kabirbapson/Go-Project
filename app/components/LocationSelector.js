@@ -15,7 +15,7 @@ export default function LocationSelector({selectedValue, data}) {
       <Text fontFamily={'Lato-Regular'} fontSize={'md'}>
         {selectedValue ? selectedValue : 'Select a location...'}
       </Text>
-      <Feather name="map-pin" size={18} />
+      <Feather name="map-pin" color={'black'} size={18} />
     </Pressable>
   );
 }

@@ -3,10 +3,10 @@ import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
 import {Box, HStack, Text, VStack} from 'native-base';
 import logoPng from './../../assets/images/logopng.png';
-export default function InfoSmallCircle({title, subTitile, onPress}) {
+export default function InfoSmallCircle({title, story, img, onPress}) {
   return (
     <Box>
-      <Pressable style={styles.otherNews} onPress={ onPress}>
+      <Pressable style={styles.otherNews} onPress={onPress}>
         <Box
           p="1"
           w={'100%'}
@@ -29,16 +29,19 @@ export default function InfoSmallCircle({title, subTitile, onPress}) {
                 borderRadius={10}
                 resizeMode="contain"
                 style={styles.otherNewsImage}
-                source={logoPng}
+                // source={img}
+                source={{uri: img}}
               />
             </Box>
             <Box
               w={'68%'}
               // bg={'red.100'}
-              justifyContent={'center'}
-              alignItems={'center'}
+              // justifyContent={'center'}
+              // alignItems={'center'}
               mx={1}>
-              <VStack p={1} justifyContent={'center'} alignItems={'center'}>
+              <VStack p={1}
+                // justifyContent={'center'} alignItems={'center'}
+              >
                 <Text
                   // position={'absolute'}
                   zIndex={100}
@@ -50,7 +53,7 @@ export default function InfoSmallCircle({title, subTitile, onPress}) {
                   {title}
                 </Text>
                 <Text px={1} color={'#898A8D'} fontSize={13} numberOfLines={4}>
-                  {subTitile}
+                  {story}
                 </Text>
               </VStack>
             </Box>
