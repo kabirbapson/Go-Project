@@ -21,6 +21,8 @@ import Profile from '../screens/Profile';
 import NavBottomBar from './NavBottomBar';
 import NewsPost from '../screens/NewsPost';
 
+import ReadPost from '../screens/Info/ReadPost';
+
 const Stack = createNativeStackNavigator();
 
 export default function ScreenNavigation() {
@@ -90,6 +92,11 @@ export default function ScreenNavigation() {
       <Stack.Screen
         name="NewsPost"
         component={NewsPost}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ReadPost"
+        component={ReadPost}
         options={{headerShown: false}}
       />
       <Stack.Screen

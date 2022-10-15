@@ -6,7 +6,7 @@ import logoPng from './../../assets/images/logopng.png';
 export default function InfoSmallCircle({title, subTitile, onPress}) {
   return (
     <Box>
-      <Pressable style={styles.otherNews} onPress={() => onPress}>
+      <Pressable style={styles.otherNews} onPress={ onPress}>
         <Box
           p="1"
           w={'100%'}

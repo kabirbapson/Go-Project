@@ -36,19 +36,18 @@ export default function Info({navigation}) {
 
   const searchPost = text => {
     if (text === '') {
-      setLists(LatestInfo)
-      setSearchInfo(text)
+      setLists(LatestInfo);
+      setSearchInfo(text);
       return;
     }
     const filt = lists.filter(item =>
       item.title.toLowerCase().includes(text.toLowerCase()),
     );
     setLists(filt);
-    setSearchInfo(text)
+    setSearchInfo(text);
     setShowRecent(false);
     console.log(filt);
     console.log(searchInfo);
-
   };
 
   const onBlur = () => {
@@ -109,7 +108,12 @@ export default function Info({navigation}) {
             <FlatList
               horizontal={true}
               data={LatestInfo}
-              renderItem={({item}) => <RecentCard />}
+              renderItem={({item}) => (
+                <RecentCard
+                  onPress={() => console.log(item.id)}
+                  text={item.title}
+                />
+              )}
               keyExtractor={item => item.id}
             />
           </Box>
@@ -119,6 +123,7 @@ export default function Info({navigation}) {
 
         {lists.map(item => (
           <InfoSmallCircle
+            onPress={() => navigation.navigate('ReadPost')}
             key={item.id}
             title={item.cover}
             subTitile={item.title}
