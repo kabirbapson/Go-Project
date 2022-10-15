@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   Text,
@@ -19,25 +19,47 @@ import logoPng from './../../../assets/images/logopng.png';
 import RecentCard from '../../components/Info/RecentCard';
 
 const LatestInfo = [
-  {id: 1, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
+  {id: 1, cover: 'goje', title: 'Gombe'},
   {id: 2, cover: 'goje', title: 'Gombe 3G'},
-  {id: 3, cover: 'goje', title: 'Gombe 3G'},
-  {id: 4, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
-  {id: 5, cover: 'goje', title: 'Gombe 3G sfggseg rgsger srger'},
-  {id: 6, cover: 'goje', title: 'Gombe 3G'},
-  {id: 7, cover: 'goje', title: 'Gombe 3G'},
-  {id: 8, cover: 'goje', title: 'Gombe 3G fgfg rfgwergfs grfgr'},
+  {id: 3, cover: 'goje', title: 'Gombe 3GG'},
+  {id: 4, cover: 'goje', title: 'Gombe fgfg'},
+  {id: 5, cover: 'goje', title: 'Gombe sfggseg'},
+  {id: 6, cover: 'goje', title: 'Gombe 4Gg'},
+  {id: 7, cover: 'goje', title: 'Gombe 5Ghh'},
+  {id: 8, cover: 'goje', title: 'Gombe rfgwergfs'},
 ];
 
 export default function Info({navigation}) {
   const [showRecent, setShowRecent] = useState(true);
   const [searchInfo, setSearchInfo] = useState('');
+  const [lists, setLists] = useState(LatestInfo);
 
-  const onChange = e => {
-    setSearchInfo(e);
+  const searchPost = text => {
+    if (text === '') {
+      setLists(LatestInfo)
+      setSearchInfo(text)
+      return;
+    }
+    const filt = lists.filter(item =>
+      item.title.toLowerCase().includes(text.toLowerCase()),
+    );
+    setLists(filt);
+    setSearchInfo(text)
     setShowRecent(false);
+    console.log(filt);
     console.log(searchInfo);
+
   };
+
+  const onBlur = () => {
+    if (searchInfo == '') {
+      setShowRecent(true);
+    }
+  };
+
+  useEffect(() => {
+    setShowRecent(true);
+  }, []);
   return (
     <Box safeArea flex={1}>
       <Box _text={{color: '#216131'}} style={styles.header}>
@@ -61,7 +83,8 @@ export default function Info({navigation}) {
           </Text>
           <Input
             value={searchInfo}
-            onChangeText={e => onChange(e)}
+            onBlur={onBlur}
+            onChangeText={e => searchPost(e)}
             placeholder="Search for information..."
             width="100%"
             borderRadius="4"
@@ -94,13 +117,11 @@ export default function Info({navigation}) {
 
         {/* searchhh result  */}
 
-        {LatestInfo.map(item => (
+        {lists.map(item => (
           <InfoSmallCircle
             key={item.id}
-            title={'Gombe State Government'}
-            subTitile={
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mollis scelerisque fusce sed ac faucibus varius magna nisl. Scelerisque eu proin.'
-            }
+            title={item.cover}
+            subTitile={item.title}
           />
         ))}
       </ScrollView>
