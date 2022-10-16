@@ -78,7 +78,7 @@ export default function QAlert({navigation}) {
                 source={{uri: item.path}}
                 alt={'user image'}
                 width={100}
-                h={100}
+                h={100} 
               />
               {/* <Box width={100} h={100} background={'red.100'} /> */}
             </Box>
