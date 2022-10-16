@@ -43,12 +43,17 @@ export default function QAlert({navigation}) {
         headerTitle={"Share What's Happening"}
         onBackButtonPress={handleBackButton}
       />
-      <Box>
+      <Box
+        p={2}
+        mt={5}
+        borderWidth={1}
+        rounded={8}
+        borderColor={'#264653'}
+      >
         <Input
-          mt={5}
-          p={'2'}
+          borderWidth={0}
           fontFamily={'Lato-Medium'}
-          fontSize={'md'}
+          fontSize={'sm'}
           placeholder={"What's happening in your area?"}
           placeholderTextColor={'gray.700'}
           multiline={true}
@@ -59,12 +64,16 @@ export default function QAlert({navigation}) {
           // onChange={itemValue => setAdditionInfo(itemValue)}
         />
         <Pressable
-          mt={'4'}
+          m={'2'}
+          // mx={2}
+          // px={2}
           flexDir="row"
           alignItems={'center'}
+          justifyContent={'flex-end'}
           onPress={handleAddIncidentImage}>
-          <Feather name={'camera'} color={'black'} size={25} />
-          <Text px={'3'}>Add Image (Optional)</Text>
+          <Box mx={1}><Feather name={'map-pin'} color={'black'} size={20} /></Box>
+          <Box mx={2}><Feather name={'camera'} color={'black'} size={20} /></Box>
+          <Box mx={1}><Feather name={'video'} color={'black'} size={20} /></Box>
         </Pressable>
       </Box>
       <Box mt={'5'}>
