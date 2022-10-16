@@ -40,32 +40,33 @@ export default function QAlert({navigation}) {
   return (
     <Box p={'5'}>
       <HeaderBackButton
-        headerTitle={"Share What'\s Happening"}
+        headerTitle={"Share What's Happening"}
         onBackButtonPress={handleBackButton}
       />
-      
-      <Input
-        mt={5}
-        p={'2'}
-        fontFamily={'Lato-Medium'}
-        fontSize={'md'}
-        placeholder={'What\'s happening in your area?'}
-        multiline={true}
-        numberOfLines={10}
-        textAlignVertical={'top'}
-        value={additionInfo}
-        onChangeText={itemValue => setAdditionInfo(itemValue)}
-        // onChange={itemValue => setAdditionInfo(itemValue)}
-        
-      />
-      <Pressable
-        mt={'4'}
-        flexDir="row"
-        alignItems={'center'}
-        onPress={handleAddIncidentImage}>
-        <Feather name={'camera'} color={'black'} size={25} />
-        <Text px={'3'}>Add Image (Optional)</Text>
-      </Pressable>
+      <Box>
+        <Input
+          mt={5}
+          p={'2'}
+          fontFamily={'Lato-Medium'}
+          fontSize={'md'}
+          placeholder={"What's happening in your area?"}
+          placeholderTextColor={'gray.700'}
+          multiline={true}
+          numberOfLines={10}
+          textAlignVertical={'top'}
+          value={additionInfo}
+          onChangeText={itemValue => setAdditionInfo(itemValue)}
+          // onChange={itemValue => setAdditionInfo(itemValue)}
+        />
+        <Pressable
+          mt={'4'}
+          flexDir="row"
+          alignItems={'center'}
+          onPress={handleAddIncidentImage}>
+          <Feather name={'camera'} color={'black'} size={25} />
+          <Text px={'3'}>Add Image (Optional)</Text>
+        </Pressable>
+      </Box>
       <Box mt={'5'}>
         <FlatList
           data={incidentImages}
@@ -73,19 +74,19 @@ export default function QAlert({navigation}) {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           renderItem={({item}) => (
-            <Box ml={'4'}> 
+            <Box ml={'4'}>
               <Image
                 source={{uri: item.path}}
                 alt={'user image'}
                 width={100}
-                h={100} 
+                h={100}
               />
               {/* <Box width={100} h={100} background={'red.100'} /> */}
             </Box>
           )}
         />
       </Box>
-      
+
       <Button bg={'#264653'} onPress={() => handleSend()} mt={'10%'}>
         Send
       </Button>
