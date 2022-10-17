@@ -70,7 +70,7 @@ export default function QAlert({navigation}) {
           flexDir="row"
           alignItems={'center'}
           justifyContent={'flex-end'}
-          onPress={handleAddIncidentImage}>
+          onPress={handleAddIncidentImage}> 
           <Box mx={1}><Feather name={'map-pin'} color={'black'} size={20} /></Box>
           <Box mx={2}><Feather name={'camera'} color={'black'} size={20} /></Box>
           <Box mx={1}><Feather name={'video'} color={'black'} size={20} /></Box>
