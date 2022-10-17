@@ -58,8 +58,9 @@ export default function Alert({navigation}) {
   const renderItem = ({item, onPress}) => (
     <Item item={item} onPress={handleOptionPress} />
   );
-  const handleQuickAlert = () => navigation.navigate('Quick Alert');
-  const handleSendTips = () => navigation.navigate('Send Tips');
+  const handleQuickAlert = () => navigateTo('Quick Alert');
+  const handleSendTips = () => navigateTo('Send Tips');
+  const navigateTo = destination => navigation.navigate(destination);
 
   const handleOptionPress = action => {
     switch (action) {
@@ -79,8 +80,6 @@ export default function Alert({navigation}) {
         console.log(action);
     }
   };
-
-  const navigateTo = destination => navigation.navigate(destination);
 
   return (
     <SafeAreaView style={{flex: 1}}>
