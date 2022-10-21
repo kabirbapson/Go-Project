@@ -22,8 +22,10 @@ import NewsFeaturing from '../../components/NewsFeaturing';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
-  const featuring = {};
+  const featuring = post[0];
   const dispatch = useDispatch();
+
+  console.log(loading)
 
   React.useEffect(() => {
     dispatch(fetchNewsPost());

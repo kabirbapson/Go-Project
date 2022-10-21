@@ -9,12 +9,12 @@ export default function NewsSmallCard({data, onPress}) {
         <Image
           // resizeMode="contain"
           style={styles.otherNewsImage}
-          source={{uri: data.cover}}
+          source={{uri: data.imageUrl}}
         />
 
         <View style={styles.otherNewsText}>
-          <Text>{data.title}</Text>
-          <Text>read more...</Text>
+          <Text style={{color:'black'}}>{data.title}</Text>
+          <Text style={{color:'black'}}>read more...</Text>
         </View>
       </Pressable>
     </View>

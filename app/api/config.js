@@ -1,7 +1,7 @@
 import {create} from 'apisauce';
 
 export const api = create({
-  baseURL: 'http://192.168.0.124:9000/api/v1',
+  baseURL: 'http://192.168.0.139:9000',
 });
 
 // export const api = create({
