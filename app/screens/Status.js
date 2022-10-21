@@ -25,7 +25,7 @@ export default function Status({route, navigation}) {
     <Box p={'5'}>
       <HeaderBackButton
         headerTitle={"What's Happening"}
-        onBackButtonPress={handleBackButton}
+        onBackButtonPress={handleBackButton} 
       />
       <Select
         selectedValue={service}
