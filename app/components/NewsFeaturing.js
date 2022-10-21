@@ -16,7 +16,7 @@ export default function NewsFeaturing({data, onPress}) {
         <Image
           resizeMode="contain"
           style={styles.imageP}
-          source={{uri: data.imageUrl}}
+          source={{uri: data.imageUrl}} 
         />
         <Text style={styles.topNews}>{data.title}</Text>
         <Text style={styles.topNewsSum}>{data.subtitle}</Text>
