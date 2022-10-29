@@ -14,7 +14,7 @@ export default function NewsSmallCard({data, onPress}) {
 
         <View style={styles.otherNewsText}>
           <Text style={{color:'black'}}>{data.title}</Text>
-          <Text style={{color:'black'}}>read more...</Text>
+          <Text style={{color:'black', marginTop:10}}>read more...</Text>
         </View>
       </Pressable>
     </View>

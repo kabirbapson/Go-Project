@@ -22,9 +22,9 @@ import NewsFeaturing from '../../components/NewsFeaturing';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
-  const randoPost = Math.floor(Math.random() * 3)
-  console.log(randoPost)
-  const featuring = post[randoPost];
+  // const randoPost = Math.floor(Math.random() * 3)
+  console.log(post)
+  const featuring = post[0];
   const dispatch = useDispatch();
 
   console.log(post.length);
@@ -55,7 +55,7 @@ export default function News({navigation}) {
             style={styles.scrollView}
             showsVerticalScrollIndicator={false}>
             {/* header title */}
-            <HeaderTitle textTitle={'Breaking News'} />
+            <HeaderTitle textTitle={'Latest News'} />
 
             {/* latestNews */}
             {featuring && (
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: hp(20),
+    backgroundColor:'red'
   },
   textTitleEA: {},
 });
