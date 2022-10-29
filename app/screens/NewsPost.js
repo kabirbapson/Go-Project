@@ -14,14 +14,14 @@ export default function NewsPost({route, navigation}) {
       </Box>
       <ScrollView>
         <Image
-          source={{uri: postData.cover}}
+          source={{uri: postData.imageUrl}}
           resizeMode={'cover'}
           alt="cover image"
           width={'100%'}
           height={250}
         />
 
-        <Box p={'4'} bgColor={'white'}>
+        <Box p={'4'} bg={'white'} flex="1" roundedTop={30}>
           <Text fontSize={'xl'} mb={'4'}>
             {postData.title}
           </Text>
@@ -42,5 +42,6 @@ export default function NewsPost({route, navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:'#E5E5E5'
   },
 });

@@ -23,9 +23,10 @@ export default function HeaderBackButton({
         <Center
           w={'10'}
           h={'10'}
+          mt="3"
           borderRadius={100}
-          backgroundColor={'#264653'}>
-          <Feather name="arrow-left" size={25} color={COLORS.white} />
+          backgroundColor={COLORS.white}>
+          <Feather name="arrow-left" size={25} color={COLORS.darkCyan} />
         </Center>
       </Pressable>
       <Text

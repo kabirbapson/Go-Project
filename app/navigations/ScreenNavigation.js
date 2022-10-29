@@ -23,6 +23,7 @@ import NewsPost from '../screens/NewsPost';
 
 import ReadPost from '../screens/Info/ReadPost';
 
+
 const Stack = createNativeStackNavigator();
 
 export default function ScreenNavigation() {

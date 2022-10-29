@@ -13,8 +13,8 @@ export default function NewsSmallCard({data, onPress}) {
         />
 
         <View style={styles.otherNewsText}>
-          <Text style={{color:'black'}}>{data.title}</Text>
-          <Text style={{color:'black', marginTop:10}}>read more...</Text>
+          <Text style={{color: 'black', fontWeight: '600'}}>{data.title}</Text>
+          <Text style={styles.readMore}>read more...</Text>
         </View>
       </Pressable>
     </View>
@@ -34,5 +34,13 @@ const styles = StyleSheet.create({
   otherNewsText: {
     flex: 1,
     paddingHorizontal: 7,
+  },
+  readMore: {
+    color: '#000000',
+    paddingHorizontal: 7,
+    position: 'absolute',
+    bottom: 3,
+    fontSize: 16,
+    fontWeight: '200',
   },
 });

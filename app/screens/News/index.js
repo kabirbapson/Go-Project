@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: hp(20),
-    backgroundColor:'red'
+    // backgroundColor:'red'
   },
   textTitleEA: {},
 });
