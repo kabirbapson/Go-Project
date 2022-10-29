@@ -22,10 +22,12 @@ import NewsFeaturing from '../../components/NewsFeaturing';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
-  const featuring = post[0];
+  const randoPost = Math.floor(Math.random() * 3)
+  console.log(randoPost)
+  const featuring = post[randoPost];
   const dispatch = useDispatch();
 
-  console.log(loading)
+  console.log(post.length);
 
   React.useEffect(() => {
     dispatch(fetchNewsPost());
@@ -37,7 +39,7 @@ export default function News({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View >
+      <View>
         <HeaderComponent
           title={'GOMBE\nNEWS'}
           titleColor={styles.titleColor}
@@ -77,7 +79,7 @@ export default function News({navigation}) {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, 
     backgroundColor: '#F8F9FA',
     paddingHorizontal: hp(20),
     paddingTop: 20,
