@@ -28,7 +28,7 @@ export default function NewsPost({route, navigation}) {
           <Text
             fontSize={'lg'}
             fontStyle={'italic'}
-            color={'gray.500'}
+            color={'gray.500' }
             mb={'10'}>
             {postData.subtitle}
           </Text>
