@@ -15,8 +15,8 @@ export default function ReadPost({route, navigation}) {
         <HeaderBackButton onBackButtonPress={handleBackButton} />
       </Box>
       <ScrollView>
-              <Image
-                  rounded={8}
+        <Image
+          rounded={8}
           source={{uri: post.img}}
           resizeMode={'contain'}
           alt="cover image"
@@ -36,7 +36,6 @@ export default function ReadPost({route, navigation}) {
             {post.story}
           </Text>
           <Text fontSize={'md'}>By Hon. HH Kumo</Text>
-          
         </Box>
       </ScrollView>
     </SafeAreaView>
