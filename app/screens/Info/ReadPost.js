@@ -18,7 +18,7 @@ export default function ReadPost({route, navigation}) {
         <Image
           rounded={8}
           source={{uri: post.img}}
-          resizeMode={'contain'}
+          resizeMode={' contain'}
           alt="cover image"
           width={'100%'}
           height={250}
