@@ -11,7 +11,10 @@ export default function ReadPost({route, navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Box p={'4'} position={'absolute'} zIndex={2}>
+      <Box
+        p={'4'}
+        position={'absolute'}
+        zIndex={2}>
         <HeaderBackButton onBackButtonPress={handleBackButton} />
       </Box>
       <ScrollView>
