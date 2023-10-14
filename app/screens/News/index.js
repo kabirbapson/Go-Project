@@ -23,7 +23,7 @@ import NewsFeaturing from '../../components/NewsFeaturing';
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
   // const randoPost = Math.floor(Math.random() * 3)
-  console.log(post)
+  console.log(post);
   const featuring = post[0];
   const dispatch = useDispatch();
 
@@ -79,7 +79,7 @@ export default function News({navigation}) {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: '#F8F9FA',
     paddingHorizontal: hp(20),
     paddingTop: 20,
