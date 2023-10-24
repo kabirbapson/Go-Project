@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: hp(10),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // alignItems: 'center',
   },
   textEmergencyAssistance: {
     paddingVertical: 10,
