@@ -49,7 +49,8 @@ const Item = ({item}) => (
   />
 );
 
-function Home({navigation}) {
+function Home({ navigation }) {
+  
   const renderItem = ({item}) => <Item item={item} />;
 
   return (
