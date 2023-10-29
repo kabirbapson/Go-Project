@@ -1,15 +1,17 @@
 import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
-
+import img  from './../../assets/images/bpp.png';
 export default function NewsSmallCard({data, onPress}) {
   return (
-    <View style={{marginTop: hp(28)}}>
+    <View style={{marginTop: 20}}>
       <Pressable style={styles.otherNews} onPress={() => onPress(data)}>
         <Image
           // resizeMode="contain"
           style={styles.otherNewsImage}
-          source={{uri: data.imageUrl}}
+          // source={{ uri: data.imageUrl }}
+          source={img}
+          // source={'../../assets/images/bpp.png'}
         />
 
         <View style={styles.otherNewsText}>

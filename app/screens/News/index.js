@@ -1,40 +1,56 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
-import {Spinner, Box, Skeleton, VStack, Center, FlatList} from 'native-base';
-import {COLORS} from '../../../assets/colors';
-import {hp, wp} from '../../utils/dpTopx';
+import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
+import {Spinner, Box, Center, Text} from 'native-base';
+import {hp} from '../../utils/dpTopx';
 
 import HeaderComponent from '../../components/HeaderComponent';
 import NewsSmallCard from '../../components/NewsSmallCard';
 import {HeaderTitle} from '../../components/HeaderTitle';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchNewsPost} from '../../features/news/newsSlice';
+import {fetchPost} from '../../features/news/newsSlice';
 import NewsFeaturing from '../../components/NewsFeaturing';
+import axios from 'axios';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
   // const randoPost = Math.floor(Math.random() * 3)
-  console.log(post);
-  const featuring = post[0];
+  console.log('from home', post, loading);
+  // const featuring = post[0];
   const dispatch = useDispatch();
 
-  console.log(post.length);
+  React.useEffect(() => {
+    // dispatch(fetchPost());
+    axios
+      .get('http://jsonplaceholder.typicode.com/posts')
+      .then(res => {
+        console.log({res});
+      })
+      .catch(err => {
+        console.log({err});
+      });
+    console.log('dfd');
+  }, []);
 
   React.useEffect(() => {
-    dispatch(fetchNewsPost());
-  }, [dispatch]);
+    axios
+      .get('http://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        // Handle successful response here
+        console.log('Data:', response.data);
+        // Dispatch an action if necessary to store the data in your Redux state
+      })
+      .catch(error => {
+        // Handle error here
+        console.error('Error:', error);
+        // You can also set an error state or display an error message to the user
+      });
+    console.log('object');
+  }, []);
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
+    console.log(postData);
   };
 
   return (
@@ -48,29 +64,27 @@ export default function News({navigation}) {
         />
         {loading ? (
           <Center>
-            <Spinner mt="10" size={'sm'} />
+            <Spinner mt="10" size={'lg'} />
           </Center>
         ) : (
           <ScrollView
             style={styles.scrollView}
-            showsVerticalScrollIndicator={false}>
+            showsVerticalScrollIndicator={true}>
             {/* header title */}
             <HeaderTitle textTitle={'Latest News'} />
 
-            {/* latestNews */}
-            {featuring && (
-              <NewsFeaturing data={featuring} onPress={handleNewsClick} />
+            {post?.length > 0 && (
+              <>
+                <NewsFeaturing data={post[0]} onPress={handleNewsClick} />
+                {post.slice(0, 10).map(newsPost => (
+                  <NewsSmallCard
+                    key={newsPost.id}
+                    data={newsPost}
+                    onPress={handleNewsClick}
+                  />
+                ))}
+              </>
             )}
-            {/* section card */}
-
-            {post.length > 0 &&
-              post.map(newsPost => (
-                <NewsSmallCard
-                  key={newsPost.id}
-                  data={newsPost}
-                  onPress={handleNewsClick}
-                />
-              ))}
           </ScrollView>
         )}
       </View>
@@ -95,7 +109,8 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: hp(20),
-    // backgroundColor:'red'
+    // backgroundColor: 'red',
+    // flexGrow: 1,
   },
   textTitleEA: {},
 });
