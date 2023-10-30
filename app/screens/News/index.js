@@ -19,6 +19,7 @@ import {HeaderTitle} from '../../components/HeaderTitle';
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchNewsPost} from '../../features/news/newsSlice';
 import NewsFeaturing from '../../components/NewsFeaturing';
+import axios from 'axios';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
@@ -31,6 +32,14 @@ export default function News({navigation}) {
 
   React.useEffect(() => {
     dispatch(fetchNewsPost());
+    // axios
+    //   .get('https://21de-197-210-71-48.ngrok-free.app/news')
+    //   .then(res => {
+    //     console.log(' 127 data', res.data);
+    //   })
+    //   .catch(err => {
+    //     console.log('127 err', err);
+    //   });
   }, [dispatch]);
 
   const handleNewsClick = postData => {

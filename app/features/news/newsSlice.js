@@ -1,14 +1,18 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import * as api from '../../api/news/api.news';
+import axios from 'axios';
 
 export const fetchNewsPost = createAsyncThunk(
   'news/fetchNewsPost',
   async () => {
-    const response = await api.getNewsPost();
-    if (!response.ok) {
-      return [];
-    }
-    return response.data;
+    const response = await axios.get(
+      'https://21de-197-210-71-48.ngrok-free.app/news',
+    );
+    // console.log(response.data);
+    // if (!response) {
+    //   return [];
+    // }
+    return response.data.slice(0, 10);
   },
 );
 

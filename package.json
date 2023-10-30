@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "json-server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.7",
@@ -17,6 +18,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "apisauce": "^2.1.5",
     "axios": "^0.27.2",
+    "json-server": "^0.17.4",
     "native-base": "^3.4.17",
     "react": "17.0.2",
     "react-native": "0.68.2",

@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
+import yo from '../../assets/images/yo.jpg';
 
 export default function NewsSmallCard({data, onPress}) {
   return (
@@ -9,7 +10,8 @@ export default function NewsSmallCard({data, onPress}) {
         <Image
           // resizeMode="contain"
           style={styles.otherNewsImage}
-          source={{uri: data.imageUrl}}
+          // source={{uri: data.imageUrl}}
+          source={yo}
         />
 
         <View style={styles.otherNewsText}>
