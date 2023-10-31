@@ -18,7 +18,7 @@ import ButtomThumbs from './ButtomThumbs';
 export default function () {
   return (
     <Box
-      h={hp(150)}
+      // h={hp(150)}
       w={'100%'}
       bgColor={'red.300'}
       //   alignItems={'flex-start'}
@@ -33,7 +33,7 @@ export default function () {
             backgroundColor: '#2A9D8F',
           }}></Circle>
       </Box>
-      <Box px={2} alignItems={'flex-start'}>
+      <Box px={2} mr={4}   alignItems={'flex-start'}>
         <Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis id et,
           aliquam lorem tincidunt egestas at. Interdum pellentesque dolor
