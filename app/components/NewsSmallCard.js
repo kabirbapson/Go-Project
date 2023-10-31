@@ -5,13 +5,14 @@ import yo from '../../assets/images/yo.jpg';
 
 export default function NewsSmallCard({data, onPress}) {
   return (
-    <View style={{marginTop: hp(28)}}>
+    <View style={{marginTop: 20}}>
       <Pressable style={styles.otherNews} onPress={() => onPress(data)}>
         <Image
           // resizeMode="contain"
           style={styles.otherNewsImage}
           // source={{uri: data.imageUrl}}
           source={yo}
+
         />
 
         <View style={styles.otherNewsText}>

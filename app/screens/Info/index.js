@@ -52,7 +52,7 @@ const LatestInfo = [
   {
     id: 6,
     story: 'goje',
-    title: 'Gombe 4Gg',
+    title: 'Gombe 4Gg Gombe 4Gg Gombe 4Gg Gombe 4Gg',
     img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6tFeHEa2KY-JAEgrcbGe_iL4fWRcWlXZ4g&usqp=CAU',
   },
   {
