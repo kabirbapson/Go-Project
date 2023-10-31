@@ -20,15 +20,16 @@ import {COLORS} from '../../assets/colors';
 import * as image from '../utils/image';
 
 export default function QAlert({navigation}) {
-  const [service, setService] = React.useState('');
   const [incidentImages, setIncidentImages] = React.useState([]);
   const [additionInfo, setAdditionInfo] = React.useState('');
-  const [category, setCategory] = React.useState('');
 
   const handleBackButton = () => navigation.goBack();
 
-  const handleSend = () =>
-    console.log(category, service, incidentImages.entries(), additionInfo);
+  const handleSend = () => {
+    alert(`${additionInfo}, Informaton Sent`);
+    navigation.goBack();
+    return;
+  };
 
   const handleAddIncidentImage = async () => {
     const pickImage = await image.GetImageFromGallery();
@@ -43,13 +44,7 @@ export default function QAlert({navigation}) {
         headerTitle={"Share What's Happening"}
         onBackButtonPress={handleBackButton}
       />
-      <Box
-        p={2}
-        mt={5}
-        borderWidth={1}
-        rounded={8}
-        borderColor={'#264653'}
-      >
+      <Box p={2} mt={5} borderWidth={1} rounded={8} borderColor={'#264653'}>
         <Input
           borderWidth={0}
           fontFamily={'Lato-Medium'}
@@ -70,10 +65,16 @@ export default function QAlert({navigation}) {
           flexDir="row"
           alignItems={'center'}
           justifyContent={'flex-end'}
-          onPress={handleAddIncidentImage}> 
-          <Box mx={1}><Feather name={'map-pin'} color={'black'} size={20} /></Box>
-          <Box mx={2}><Feather name={'camera'} color={'black'} size={20} /></Box>
-          <Box mx={1}><Feather name={'video'} color={'black'} size={20} /></Box>
+          onPress={handleAddIncidentImage}>
+          <Box mx={1}>
+            <Feather name={'map-pin'} color={'black'} size={20} />
+          </Box>
+          <Box mx={2}>
+            <Feather name={'camera'} color={'black'} size={20} />
+          </Box>
+          <Box mx={1}>
+            <Feather name={'video'} color={'black'} size={20} />
+          </Box>
         </Pressable>
       </Box>
       <Box mt={'5'}>

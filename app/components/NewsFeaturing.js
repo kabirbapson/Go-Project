@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
+import yo from '../../assets/images/yo.jpg';
 
 export default function NewsFeaturing({data, onPress}) {
   return (
@@ -16,16 +17,25 @@ export default function NewsFeaturing({data, onPress}) {
         <Image
           resizeMode="contain"
           style={styles.imageP}
-          source={{uri: data.imageUrl}}
+          // source={{uri: data.imageUrl}}
+          source={yo}
         />
         <Text style={styles.topNews}>{data.title}</Text>
         <Text style={styles.topNewsSum}>{data.subtitle}</Text>
         <View style={styles.topNewsBottomText}>
-          <Text style={[styles.topNewsBottomTextStyle, {color: '#2A9D8F', marginLeft:-8}]}>
+          <Text
+            style={[
+              styles.topNewsBottomTextStyle,
+              {color: '#2A9D8F', marginLeft: -8},
+            ]}>
             read more... *
           </Text>
-          <Text style={[styles.topNewsBottomTextStyle, {color: '#B8C9C0'}]}>4 min read *</Text>
-          <Text style={[styles.topNewsBottomTextStyle, {color: '#B8C9C0'}]}>47k comment</Text>
+          <Text style={[styles.topNewsBottomTextStyle, {color: '#B8C9C0'}]}>
+            4 min read *
+          </Text>
+          <Text style={[styles.topNewsBottomTextStyle, {color: '#B8C9C0'}]}>
+            47k comment
+          </Text>
         </View>
       </Pressable>
     </View>

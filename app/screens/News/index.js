@@ -20,33 +20,10 @@ export default function News({navigation}) {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    // dispatch(fetchPost());
-    axios
-      .get('http://jsonplaceholder.typicode.com/posts')
-      .then(res => {
-        console.log({res});
-      })
-      .catch(err => {
-        console.log({err});
-      });
-    console.log('dfd');
-  }, []);
+    dispatch(fetchPost());
+ 
+  }, [dispatch]);
 
-  React.useEffect(() => {
-    axios
-      .get('http://jsonplaceholder.typicode.com/posts')
-      .then(response => {
-        // Handle successful response here
-        console.log('Data:', response.data);
-        // Dispatch an action if necessary to store the data in your Redux state
-      })
-      .catch(error => {
-        // Handle error here
-        console.error('Error:', error);
-        // You can also set an error state or display an error message to the user
-      });
-    console.log('object');
-  }, []);
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
