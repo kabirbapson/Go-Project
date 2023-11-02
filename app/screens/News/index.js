@@ -1,49 +1,33 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  ScrollView,
-  SafeAreaView,
-} from 'react-native';
-import {Spinner, Box, Skeleton, VStack, Center, FlatList} from 'native-base';
-import {COLORS} from '../../../assets/colors';
-import {hp, wp} from '../../utils/dpTopx';
+import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
+import {Spinner, Box, Center, Text} from 'native-base';
+import {hp} from '../../utils/dpTopx';
 
 import HeaderComponent from '../../components/HeaderComponent';
 import NewsSmallCard from '../../components/NewsSmallCard';
 import {HeaderTitle} from '../../components/HeaderTitle';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchNewsPost} from '../../features/news/newsSlice';
+import {fetchPost} from '../../features/news/newsSlice';
 import NewsFeaturing from '../../components/NewsFeaturing';
 import axios from 'axios';
 
 export default function News({navigation}) {
   const {post, loading} = useSelector(state => state.news);
   // const randoPost = Math.floor(Math.random() * 3)
-  console.log(post);
-  const featuring = post[0];
+  console.log('from home', post, loading);
+  // const featuring = post[0];
   const dispatch = useDispatch();
 
-  console.log(post.length);
-
   React.useEffect(() => {
-    dispatch(fetchNewsPost());
-    // axios
-    //   .get('https://21de-197-210-71-48.ngrok-free.app/news')
-    //   .then(res => {
-    //     console.log(' 127 data', res.data);
-    //   })
-    //   .catch(err => {
-    //     console.log('127 err', err);
-    //   });
+    dispatch(fetchPost());
+ 
   }, [dispatch]);
+
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
+    console.log(postData);
   };
 
   return (
@@ -57,19 +41,28 @@ export default function News({navigation}) {
         />
         {loading ? (
           <Center>
-            <Spinner mt="10" size={'sm'} />
+            <Spinner mt="10" size={'lg'} />
           </Center>
         ) : (
           <ScrollView
             style={styles.scrollView}
-            showsVerticalScrollIndicator={false}>
+            showsVerticalScrollIndicator={true}>
             {/* header title */}
             <HeaderTitle textTitle={'Latest News'} />
 
-            {/* latestNews */}
-            {featuring && (
-              <NewsFeaturing data={featuring} onPress={handleNewsClick} />
+            {post?.length > 0 && (
+              <>
+                <NewsFeaturing data={post[0]} onPress={handleNewsClick} />
+                {post.slice(0, 10).map(newsPost => (
+                  <NewsSmallCard
+                    key={newsPost.id}
+                    data={newsPost}
+                    onPress={handleNewsClick}
+                  />
+                ))}
+              </>
             )}
+
             {/* section card */}
 
 
@@ -81,6 +74,7 @@ export default function News({navigation}) {
                   onPress={handleNewsClick}
                 />
               ))}
+
           </ScrollView>
         )}
       </View>
@@ -105,7 +99,8 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginTop: hp(20),
-    // backgroundColor:'red'
+    // backgroundColor: 'red',
+    // flexGrow: 1,
   },
   textTitleEA: {},
 });

@@ -1,4 +1,4 @@
-import {Circle, Pressable} from 'native-base';
+import {Avatar, Box, Circle, Pressable} from 'native-base';
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -30,30 +30,32 @@ export default function HeaderComponent({
         <Text style={[styles.mainTitle, titleColor]}>{title}</Text>
       </View>
       <View style={styles.wrapProfile}>
-        <Pressable onPress={onNotificationPress}>
+        {/* <Pressable onPress={onNotificationPress}>
           <Feather
             style={styles.featherIcon}
             name="bell"
             size={20}
             color={featherIconColor}
           />
-        </Pressable>
-        <Pressable onPress={onMessagePress}>
+        </Pressable> */}
+        {/* <Pressable onPress={onMessagePress}>
           <Feather
             style={styles.featherIcon}
             name="mail"
             size={20}
             color={featherIconColor}
           />
-        </Pressable>
-        <Circle bg={'#216131'} size={hp(8)}>
+        </Pressable> */}
+
+        <Box bg={'#216131'} borderRadius={'full'} p={0.5}>
           <Pressable onPress={onProfilePress}>
-            <Image
-              style={styles.imageP}
+            <Avatar
+              size={'sm'}
               source={require('../../assets/images/kbb.jpg')}
             />
           </Pressable>
-        </Circle>
+        </Box>
+
       </View>
     </View>
   );
@@ -68,22 +70,20 @@ const styles = StyleSheet.create({
   },
   imageR: {
     borderRadius: 19,
-    height: hp(38),
-    width: wp(38),
-  },
-  imageP: {
-    marginHorizontal: 5,
-    borderRadius: 15,
+    height: 38,
+    width: 38,
   },
   mainTitle: {
-    marginTop: hp(5),
-    marginLeft: hp(6),
+    marginTop: 5,
+    marginLeft: 6,
     fontFamily: 'Lato-Black',
     fontSize: 12,
     // color: '#FDC904',
     letterSpacing: 2,
   },
   wrapProfile: {
+    // backgroundColor:'#216131',
+    marginHorizontal: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
