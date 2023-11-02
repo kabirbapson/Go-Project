@@ -62,6 +62,19 @@ export default function News({navigation}) {
                 ))}
               </>
             )}
+
+            {/* section card */}
+
+
+            {post.length > 0 &&
+              post.map(newsPost => (
+                <NewsSmallCard
+                  key={newsPost.id}
+                  data={newsPost}
+                  onPress={handleNewsClick}
+                />
+              ))}
+
           </ScrollView>
         )}
       </View>
