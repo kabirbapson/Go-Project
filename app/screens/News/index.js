@@ -72,6 +72,7 @@ export default function News({navigation}) {
             )}
             {/* section card */}
 
+
             {post.length > 0 &&
               post.map(newsPost => (
                 <NewsSmallCard
