@@ -21,9 +21,7 @@ export default function News({navigation}) {
 
   React.useEffect(() => {
     dispatch(fetchPost());
- 
   }, [dispatch]);
-
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
@@ -65,7 +63,6 @@ export default function News({navigation}) {
 
             {/* section card */}
 
-
             {post.length > 0 &&
               post.map(newsPost => (
                 <NewsSmallCard
@@ -74,7 +71,6 @@ export default function News({navigation}) {
                   onPress={handleNewsClick}
                 />
               ))}
-
           </ScrollView>
         )}
       </View>
