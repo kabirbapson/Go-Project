@@ -230,6 +230,7 @@ android {
             keyPassword 'android'
         }
     }
+    namespace 'com.goproject'
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
