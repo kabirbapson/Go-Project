@@ -9,6 +9,7 @@ import SettingsText from '../components/SettingsText';
 import SettingsSubTexts from '../components/SettingsSubTexts';
 import {Avatar, Box, Image, ScrollView, Text} from 'native-base';
 
+
 export default function Profile({navigation}) {
   return (
     <ScrollView>
