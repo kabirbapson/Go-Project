@@ -7,25 +7,54 @@ import hhKumo from '../../assets/images/yo.jpg';
 import Feather from 'react-native-vector-icons/Feather';
 import SettingsText from '../components/SettingsText';
 import SettingsSubTexts from '../components/SettingsSubTexts';
-import {Avatar, Box, Image, Text} from 'native-base';
+import {Avatar, Box, Image, ScrollView, Text} from 'native-base';
 
 export default function Profile({navigation}) {
   return (
-    <Box alignItems={'center'} flex={1}>
-      <Image source={gLogo} mt={'3%'} alt="gLogo" h={140} w={140} />
+    <ScrollView>
+      <Box alignItems={'center'} flex={1}>
+        {/* <Image source={gLogo} mt={'3%'} alt="gLogo" h={140} w={140} /> */}
 
-      <Text mt={'2%'} color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
+        {/* <Text mt={'2%'} color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
         GoProject
-      </Text>
+      </Text> */}
 
-      <Avatar mt={'7%'} size={'xl'} source={hhKumo} alt="gmap" />
-      <Text fontStyle={'italic'} mt={'2%'}>
-        Inspired by
-      </Text>
-      <Text color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
-        Hon. Habib Hassan Kumo
-      </Text>
-    </Box>
+        <Avatar mt={'7%'} size={'xl'} source={hhKumo} alt="gmap" />
+        <Text fontStyle={'italic'} mt={'2%'}>
+          Inspired by
+        </Text>
+        <Text color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
+          Hon. Habib Hassan Kumo
+        </Text>
+
+        <Text>
+          About the App Welcome to the Gombe State Leaders & News App, inspired
+          by the visionary leadership of Hon. Habib Hassan Kumo. This platform
+          is designed to empower the people of Gombe State with comprehensive
+          information about their leaders, senators, local government chairmen,
+          representatives, and the state government. Our Vision At the core of
+          this app is a commitment to fostering transparency, civic engagement,
+          and awareness. We believe that an informed citizenry is the foundation
+          of a thriving democracy. By providing easy access to information about
+          your leaders and the state government, we aim to empower you to
+          actively participate in the democratic process. Key Features Leader
+          Profiles: Explore detailed profiles of leaders, senators, local
+          government chairmen, representatives, and more. News Updates: Stay
+          informed with the latest news directly from the Gombe State government
+          house, ensuring you are always in the know about important
+          developments and initiatives. Connect with Your Representatives:
+          Engage with your leaders, share your concerns, and participate in the
+          conversations that shape your community. Our Mission Our mission is to
+          bridge the gap between the people and their leaders, fostering a sense
+          of community and shared responsibility. By providing a central hub for
+          information, we aim to strengthen the bond between citizens and their
+          representatives, creating a more engaged and empowered society. Join
+          us in building a Gombe State where every voice is heard, and every
+          citizen is informed. Thank you for being a part of this journey toward
+          a more connected and informed community.
+        </Text>
+      </Box>
+    </ScrollView>
   );
 }
 //   const [tnot, setTNot] = React.useState(false);
