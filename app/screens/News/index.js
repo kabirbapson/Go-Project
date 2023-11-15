@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
-import {Spinner, Box, Center, Text} from 'native-base';
+import {Spinner, Box, Center, Text, Button} from 'native-base';
 import {hp} from '../../utils/dpTopx';
 
 import HeaderComponent from '../../components/HeaderComponent';
@@ -46,10 +46,10 @@ export default function News({navigation}) {
             style={styles.scrollView}
             showsVerticalScrollIndicator={true}>
             {/* header title */}
-            <HeaderTitle textTitle={'Latest News'} />
 
-            {post?.length > 0 && (
+            {post?.length > 0 ? (
               <>
+                <HeaderTitle textTitle={'Latest News'} />
                 <NewsFeaturing data={post[0]} onPress={handleNewsClick} />
                 {post.slice(0, 10).map(newsPost => (
                   <NewsSmallCard
@@ -58,19 +58,25 @@ export default function News({navigation}) {
                     onPress={handleNewsClick}
                   />
                 ))}
+
+                {post.map(newsPost => (
+                  <NewsSmallCard
+                    key={newsPost.id}
+                    data={newsPost}
+                    onPress={handleNewsClick}
+                  />
+                ))}
               </>
+            ) : (
+              <Center mt={'20%'}>
+                <Text color={'red.400'} fontSize={18}>
+                  Please check your internet conection
+                </Text>
+                <Button variant={'ghost'} onPress={() => navigation.navigate('HomeBottomBar')}>
+                  Try again
+                </Button>
+              </Center>
             )}
-
-            {/* section card */}
-
-            {post.length > 0 &&
-              post.map(newsPost => (
-                <NewsSmallCard
-                  key={newsPost.id}
-                  data={newsPost}
-                  onPress={handleNewsClick}
-                />
-              ))}
           </ScrollView>
         )}
       </View>

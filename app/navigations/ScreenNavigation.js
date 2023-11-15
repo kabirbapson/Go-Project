@@ -22,13 +22,13 @@ import NavBottomBar from './NavBottomBar';
 import NewsPost from '../screens/NewsPost';
 
 import ReadPost from '../screens/Info/ReadPost';
-
+import Splash from '../screens/Splash';
 
 const Stack = createNativeStackNavigator();
 
 export default function ScreenNavigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen
         name="HomeBottomBar"
         component={NavBottomBar}
@@ -103,6 +103,11 @@ export default function ScreenNavigation() {
       <Stack.Screen
         name="Call"
         component={Call}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

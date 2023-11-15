@@ -51,7 +51,7 @@ export default function HeaderComponent({
           <Pressable onPress={onProfilePress}>
             <Avatar
               size={'sm'}
-              source={require('../../assets/images/kbb.jpg')}
+              source={require('../../assets/images/yo.jpg')}
             />
           </Pressable>
         </Box>
