@@ -7,13 +7,18 @@ import hhKumo from '../../assets/images/yo.jpg';
 import Feather from 'react-native-vector-icons/Feather';
 import SettingsText from '../components/SettingsText';
 import SettingsSubTexts from '../components/SettingsSubTexts';
-import {Avatar, Box, Image, ScrollView, Text} from 'native-base';
-
+import {Avatar, Box, Image, ScrollView, Text, VStack} from 'native-base';
+import HeaderBackButton from '../components/HeaderBackButton';
 
 export default function Profile({navigation}) {
+  const handleBackButton = () => navigation.goBack();
+
   return (
-    <ScrollView>
-      <Box alignItems={'center'} flex={1}>
+    <ScrollView flex={1}>
+      <Box px={'4'} position={'absolute'} zIndex={2}>
+        <HeaderBackButton onBackButtonPress={handleBackButton} />
+      </Box>
+      <Box alignItems={'center'} m={4}>
         {/* <Image source={gLogo} mt={'3%'} alt="gLogo" h={140} w={140} /> */}
 
         {/* <Text mt={'2%'} color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
@@ -28,32 +33,56 @@ export default function Profile({navigation}) {
           Hon. Habib Hassan Kumo
         </Text>
 
-        <Text>
-          About the App Welcome to the Gombe State Leaders & News App, inspired
-          by the visionary leadership of Hon. Habib Hassan Kumo. This platform
-          is designed to empower the people of Gombe State with comprehensive
-          information about their leaders, senators, local government chairmen,
-          representatives, and the state government. Our Vision At the core of
-          this app is a commitment to fostering transparency, civic engagement,
-          and awareness. We believe that an informed citizenry is the foundation
-          of a thriving democracy. By providing easy access to information about
-          your leaders and the state government, we aim to empower you to
-          actively participate in the democratic process. Key Features Leader
-          Profiles: Explore detailed profiles of leaders, senators, local
-          government chairmen, representatives, and more. News Updates: Stay
-          informed with the latest news directly from the Gombe State government
-          house, ensuring you are always in the know about important
-          developments and initiatives. Connect with Your Representatives:
-          Engage with your leaders, share your concerns, and participate in the
-          conversations that shape your community. Our Mission Our mission is to
-          bridge the gap between the people and their leaders, fostering a sense
-          of community and shared responsibility. By providing a central hub for
-          information, we aim to strengthen the bond between citizens and their
-          representatives, creating a more engaged and empowered society. Join
-          us in building a Gombe State where every voice is heard, and every
-          citizen is informed. Thank you for being a part of this journey toward
-          a more connected and informed community.
-        </Text>
+        <VStack mt={2} space={4}>
+          <Text>
+            About the App Welcome to the Gombe State Leaders & News App,
+            inspired by the visionary leadership of Hon. Habib Hassan Kumo.
+          </Text>
+          <Text>
+            This platform is designed to empower the people of Gombe State with
+            comprehensive information about their leaders, senators, local
+            government chairmen, representatives, and the state government.
+          </Text>
+          <Text>
+            Our Vision At the core of this app is a commitment to fostering
+            transparency, civic engagement, and awareness. We believe that an
+            informed citizenry is the foundation of a thriving democracy. By
+            providing easy access to information about our leaders and the state
+            government, we aim to empower you to actively participate in the
+            democratic process.
+          </Text>
+          <Text fontWeight={900}>Key Features</Text>
+
+          <Text>
+            Leader Profiles: Explore detailed profiles of leaders, senators,
+            local government chairmen, representatives, and more.
+          </Text>
+
+          <Text>
+            News Updates: Stay informed with the latest news directly from the
+            Gombe State government house, ensuring you are always in the know
+            about important developments and initiatives.
+          </Text>
+
+          <Text>
+            Connect with Your Representatives: Engage with your leaders, share
+            your concerns, and participate in the conversations that shape your
+            community.
+          </Text>
+
+          <Text>
+            Our Mission Our mission is to bridge the gap between the people and
+            their leaders, fostering a sense of community and shared
+            responsibility. By providing a central hub for information, we aim
+            to strengthen the bond between citizens and their representatives,
+            creating a more engaged and empowered society.
+          </Text>
+          <Text fontStyle={'italic'}>
+            Join us in building a Gombe State where every voice is heard, and
+            every citizen is informed. Thank you for being a part of this
+            journey toward a more connected and informed community.
+          </Text>
+        </VStack>
       </Box>
     </ScrollView>
   );
@@ -61,18 +90,18 @@ export default function Profile({navigation}) {
 //   const [tnot, setTNot] = React.useState(false);
 //   return (
 //     <View style={styles.container}>
-//       <View style={styles.header}>
-//         <TouchableOpacity
-//           style={styles.iconView}
-//           onPress={() => navigation.goBack()}>
-//           <Feather
-//             style={styles.featherIcon}
-//             name="arrow-left"
-//             color="#FFFFFF"
-//             size={25}
-//           />
-//         </TouchableOpacity>
-//       </View>
+// <View style={styles.header}>
+//   <TouchableOpacity
+//     style={styles.iconView}
+//     onPress={() => navigation.goBack()}>
+//     <Feather
+//       style={styles.featherIcon}
+//       name="arrow-left"
+//       color="#FFFFFF"
+//       size={25}
+//     />
+//   </TouchableOpacity>
+// </View>
 //       <View style={styles.textSettings}>
 //         <Text style={{fontSize: hp(26), fontWeight: 'bold', color: '#000000'}}>
 //           Settings
@@ -131,7 +160,7 @@ export default function Profile({navigation}) {
 // const styles = StyleSheet.create({
 //   container: {
 //     alignItems: 'center',
-//     // backgroundColor: '#e5e5e5',
+//     backgroundColor: '#E5E5E5',
 //     flex: 1,
 //   },
 //   header: {
@@ -141,7 +170,7 @@ export default function Profile({navigation}) {
 //     flexDirection: 'row',
 //     justifyContent: 'space-between',
 //   },
-
+//
 //   iconView: {
 //     alignItems: 'center',
 //     justifyContent: 'center',
