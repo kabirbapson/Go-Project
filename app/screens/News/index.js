@@ -8,24 +8,24 @@ import NewsSmallCard from '../../components/NewsSmallCard';
 import {HeaderTitle} from '../../components/HeaderTitle';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchPost} from '../../features/news/newsSlice';
+import {fetchPosts} from '../../features/news/newsSlice';
 import NewsFeaturing from '../../components/NewsFeaturing';
 import axios from 'axios';
 
 export default function News({navigation}) {
-  const {post, loading} = useSelector(state => state.news);
+  const {posts, loading} = useSelector(state => state.news);
   // const randoPost = Math.floor(Math.random() * 3)
-  console.log('from home', post, loading);
+  // console.log('from home', posts, loading);
   // const featuring = post[0];
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchPost());
+    dispatch(fetchPosts());
   }, [dispatch]);
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
-    console.log(postData);
+    console.log(postData.title);
   };
 
   return (
@@ -47,11 +47,11 @@ export default function News({navigation}) {
             showsVerticalScrollIndicator={true}>
             {/* header title */}
 
-            {post?.length > 0 ? (
+            {posts?.length > 0 ? (
               <>
                 <HeaderTitle textTitle={'Latest News'} />
-                <NewsFeaturing data={post[0]} onPress={handleNewsClick} />
-                {post.slice(0, 10).map(newsPost => (
+                <NewsFeaturing data={posts[0]} onPress={handleNewsClick} />
+                {posts.slice(0, 10).map(newsPost => (
                   <NewsSmallCard
                     key={newsPost.id}
                     data={newsPost}
@@ -59,20 +59,22 @@ export default function News({navigation}) {
                   />
                 ))}
 
-                {post.map(newsPost => (
+                {/* {posts.map(newsPost => (
                   <NewsSmallCard
                     key={newsPost.id}
                     data={newsPost}
                     onPress={handleNewsClick}
                   />
-                ))}
+                ))} */}
               </>
             ) : (
               <Center mt={'20%'}>
                 <Text color={'red.400'} fontSize={18}>
                   Please check your internet conection
                 </Text>
-                <Button variant={'ghost'} onPress={() => navigation.navigate('HomeBottomBar')}>
+                <Button
+                  variant={'ghost'}
+                  onPress={() => navigation.navigate('HomeBottomBar')}>
                   Try again
                 </Button>
               </Center>

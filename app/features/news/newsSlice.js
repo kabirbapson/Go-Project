@@ -1,48 +1,59 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import * as api from '../../api/news/api.news';
-import axios from 'axios';
+import {ApolloClient, InMemoryCache, gql} from '@apollo/client';
 
-export const fetchNewsPost = createAsyncThunk(
-  'news/fetchNewsPost',
-  async () => {
-    const response = await axios.get(
-      'https://21de-197-210-71-48.ngrok-free.app/news',
-    );
-    // console.log(response.data);
-    // if (!response) {
-    //   return [];
-    // }
-    return response.data.slice(0, 10);
-  },
-);
+// Define the GraphQL query
+const GET_POSTS = gql`
+  {
+    posts {
+      nodes {
+        id
+        date
+        title
+        content
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+      }
+    }
+  }
+`;
 
+// Create an Apollo Client instance
+const client = new ApolloClient({
+  uri: 'https://rariya.com.ng/graphql',
+  cache: new InMemoryCache(),
+});
 
-export const fetchPost = createAsyncThunk('news/fetchPost', async () => {
+// Define an async thunk to fetch data using Apollo Client
+export const fetchPosts = createAsyncThunk('news/fetchPosts', async () => {
   try {
-    const response = await axios.get('http://localhost:3001/gombe_state_news');
-    return response.data;
+    const {data} = await client.query({
+      query: GET_POSTS,
+    });
+    return data.posts.nodes;
   } catch (error) {
-    // You can log the error for debugging purposes
-    console.error('Error fetching data:', error);
     throw error;
   }
 });
 
-
+// Define the news slice
 export const newsSlice = createSlice({
   name: 'news',
-  initialState: {post: [], loading: false},
-  extraReducers: {
-    [fetchPost.pending]: state => {
-      state.loading = true;
-    },
-    [fetchPost.fulfilled]: (state, action) => {
-      state.post = action.payload;
-      state.loading = false;
-    },
-    [fetchPost.rejected]: state => {
-      state.loading = false;
-    },
+  initialState: {posts: [], loading: false},
+  extraReducers: builder => {
+    builder
+      .addCase(fetchPosts.pending, state => {
+        state.loading = true;
+      })
+      .addCase(fetchPosts.fulfilled, (state, action) => {
+        state.posts = action.payload;
+        state.loading = false;
+      })
+      .addCase(fetchPosts.rejected, state => {
+        state.loading = false;
+      });
   },
 });
 
