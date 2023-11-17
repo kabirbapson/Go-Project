@@ -15,17 +15,16 @@ import axios from 'axios';
 export default function News({navigation}) {
   const {posts, loading} = useSelector(state => state.news);
   // const randoPost = Math.floor(Math.random() * 3)
-  // console.log('from home', posts, loading);
+  // console.log('from home', posts[0].featuredImage.node);
   // const featuring = post[0];
   const dispatch = useDispatch();
-
   React.useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
-    console.log(postData.title);
+    // console.log(postData.title);
   };
 
   return (

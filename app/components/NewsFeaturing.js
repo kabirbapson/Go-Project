@@ -5,12 +5,16 @@ import {
   Image,
   Touchable,
   Pressable,
+  useWindowDimensions,
 } from 'react-native';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
 import yo from '../../assets/images/yo.jpg';
+import RenderHTML from 'react-native-render-html';
 
 export default function NewsFeaturing({data, onPress}) {
+  const {width} = useWindowDimensions();
+
   return (
     <View style={styles.latestNews}>
       <Pressable activeOpacity={0.7} onPress={() => onPress(data)}>
@@ -18,10 +22,16 @@ export default function NewsFeaturing({data, onPress}) {
           resizeMode="contain"
           style={styles.imageP}
           // source={{uri: data.imageUrl}}
-          source={yo}
+          source={
+            data?.featuredImage?.node?.sourceUrl
+              ? {uri: data.featuredImage.node.sourceUrl}
+              : yo
+          }
         />
         <Text style={styles.topNews}>{data.title}</Text>
-        <Text style={styles.topNewsSum}>{data.subtitle}</Text>
+        <Text numberOfLines={1} style={styles.topNewsSum}>
+          by Bappi Kabir
+        </Text>
         <View style={styles.topNewsBottomText}>
           <Text
             style={[
