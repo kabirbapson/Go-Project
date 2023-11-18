@@ -139,6 +139,7 @@ export default function Info({navigation}) {
           />
         </VStack>
 
+        
         {/* recent card  */}
         {showRecent && (
           <Box py="5" px="5">
