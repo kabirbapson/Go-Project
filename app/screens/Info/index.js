@@ -96,7 +96,6 @@ export default function Info({navigation}) {
     }
   };
 
-  
   return (
     <Box safeArea flex={1}>
       <Box _text={{color: '#216131'}} style={styles.header}>
@@ -140,7 +139,6 @@ export default function Info({navigation}) {
           />
         </VStack>
 
-        
         {/* recent card  */}
         {showRecent && (
           <Box py="5" px="5">
