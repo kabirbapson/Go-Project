@@ -12,28 +12,28 @@ import ButtonComponent from '../../components/ButtonComponent';
 const DATA = [
   {
     id: 1,
-    iconName: 'ambulance',
-    title: 'Emergency',
-    subtitle: 'List of emergency phone numbers',
+    iconName: 'police-station',
+    title: 'Security-Police',
+    subtitle: 'List of police stations and divisions.',
     bgColor: COLORS.mediumCyan,
   },
   {
     id: 2,
-    iconName: 'eye',
-    title: 'Info & Tips',
-    subtitle: 'Find location on map, or locate yourself',
+    iconName: 'ambulance',
+    title: 'Health-Hospital',
+    subtitle: 'Find health centers near you.',
     bgColor: COLORS.sandyBrown,
   },
   {
     id: 3,
-    iconName: 'exclamation-thick',
+    iconName: 'list-status',
     title: 'Happening Now',
     subtitle: "What's happening in your area?",
     bgColor: COLORS.lightOrange,
   },
   {
     id: 4,
-    iconName: 'message-bookmark-outline',
+    iconName: 'book-education-outline',
     title: 'Education',
     subtitle: 'How can we help in the education sector?',
     bgColor: COLORS.lightYellow,
@@ -65,10 +65,10 @@ export default function Alert({navigation}) {
   const handleOptionPress = action => {
     switch (action) {
       case 1:
-        navigateTo('Emergency');
+        navigateTo('Police');
         break;
       case 2:
-        navigateTo('Send Tips');
+        navigateTo('Hospital');
         break;
       case 3:
         navigateTo('Status');

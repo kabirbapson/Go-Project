@@ -1,15 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 // screens
-import Home from '../screens/Home';
 import Location from '../screens/Location';
 import Notifications from '../screens/Notifications';
-import Emergency from '../screens/Emergency';
 import Status from '../screens/Status';
 
 import Call from '../screens/Call';
@@ -23,6 +18,7 @@ import NewsPost from '../screens/NewsPost';
 
 import ReadPost from '../screens/Info/ReadPost';
 import Splash from '../screens/Splash';
+import Police from '../screens/Police';
 
 const Stack = createNativeStackNavigator();
 
@@ -70,8 +66,8 @@ export default function ScreenNavigation() {
         }}
       />
       <Stack.Screen
-        name="Emergency"
-        component={Emergency}
+        name="Police"
+        component={Police}
         options={{
           headerShown: false,
         }}
