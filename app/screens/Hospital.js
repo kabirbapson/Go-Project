@@ -217,7 +217,6 @@ export default function Hospital({navigation}) {
     setCardInfo(info);
   };
 
-  
   const handleBackButton = () => navigation.goBack();
 
   return (
