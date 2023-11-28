@@ -19,6 +19,7 @@ import NewsPost from '../screens/NewsPost';
 import ReadPost from '../screens/Info/ReadPost';
 import Splash from '../screens/Splash';
 import Police from '../screens/Police';
+import Hospital from '../screens/Hospital';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +69,13 @@ export default function ScreenNavigation() {
       <Stack.Screen
         name="Police"
         component={Police}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Hospital"
+        component={Hospital}
         options={{
           headerShown: false,
         }}
