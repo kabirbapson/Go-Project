@@ -246,7 +246,6 @@ export default function Hospital({navigation}) {
           ))}
         </Select>
 
-        
         <ScrollView showsVerticalScrollIndicator={false}>
           {policeData
             .filter(emergencyData => emergencyData.lga === selectedLGA)
