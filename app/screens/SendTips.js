@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 import {
   Box,
   Text,
@@ -12,6 +12,7 @@ import {
   Button,
   KeyboardAvoidingView,
   ScrollView,
+  HStack,
 } from 'native-base';
 import React from 'react';
 import HeaderBackButton from '../components/HeaderBackButton';
@@ -27,6 +28,8 @@ export default function SendTips({navigation}) {
   const [phone, setPhone] = React.useState('No phone added');
   const [additionInfo, setAdditionInfo] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
+
+  const [incidentImages, setIncidentImages] = React.useState([]);
 
   const handleBackButton = () => navigation.goBack();
 
@@ -57,6 +60,17 @@ export default function SendTips({navigation}) {
       });
   };
 
+  const handleAddImage = async () => {
+    try {
+      const selectedImage = await image.GetImageFromGallery();
+      if (selectedImage) {
+        setIncidentImages([...incidentImages, selectedImage]);
+      }
+    } catch (error) {
+      console.error('Error selecting image:', error);
+    }
+  };
+
   return (
     <Box p={'5'}>
       <KeyboardAvoidingView behavior={'position'}>
@@ -84,13 +98,26 @@ export default function SendTips({navigation}) {
               // onChange={itemValue => setAdditionInfo(itemValue)}
             />
 
-            <Text
-              textAlign={'right'}
-              fontSize={'sm'}
-              color={'gray.500'}
-              mt={'2'}>
-              {additionInfo.length} / 500
-            </Text>
+            <HStack justifyContent={'space-between'} alignItems={'center'}>
+              <Button
+                onPress={handleAddImage}
+                variant={'outline'}
+                borderColor={'green.500'}
+                p={1}
+                borderWidth={2}>
+                <HStack alignItems={'center'} space={2}>
+                  <Text fontWeight={900}>Add Image</Text>
+                  <Feather name={'camera'} color={'black'} size={20} />
+                </HStack>
+              </Button>
+              <Text
+                textAlign={'right'}
+                fontSize={'sm'}
+                color={'gray.500'}
+                mt={'2'}>
+                {additionInfo.length} / 500
+              </Text>
+            </HStack>
           </Box>
           <Box mt={'5'} rounded={8} borderWidth={1} borderColor={'#264653'}>
             <Input
@@ -105,7 +132,27 @@ export default function SendTips({navigation}) {
               onChangeText={setPhone}
             />
           </Box>
-
+          {incidentImages && (
+            <Box>
+              {incidentImages.map((image, index) => (
+                <TouchableOpacity
+                  key={index}
+                  // onPress={() => handleImagePress(index)}
+                >
+                  <Image
+                    alt={'jd'}
+                    source={{uri: image.uri}}
+                    style={{width: 100, height: 100, resizeMode: 'cover'}}
+                  />
+                </TouchableOpacity>
+              ))}
+            </Box>
+          )}
+          <Image
+            alt={'jd'}
+            source={incidentImages[0] && {uri: incidentImages[0].uri}}
+            style={{width: 100, height: 100, resizeMode: 'cover'}}
+          />
           <Button
             isLoading={isLoading}
             bg={'#264653'}
