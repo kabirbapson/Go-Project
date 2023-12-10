@@ -18,76 +18,130 @@ import InfoSmallCircle from '../../components/InfoSmallCircle';
 import logoPng from './../../../assets/images/logopng.png';
 import RecentCard from '../../components/Info/RecentCard';
 
-const LatestInfo = [
+const LGA = [
   {
     id: 1,
-    story: 'gojess',
-    title: 'Gombe',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIXXe1vXb7TIcYFA7hA-OdmjEsUOl4kzKdg&usqp=CAU',
+    name: 'Akko',
+    description:
+      'Akko is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Kumo. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
+
   {
     id: 2,
-    story: 'goje',
-    title: 'Gombe 3G',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiD2SyavtfKRJPygOyaXvyQZJO7W1oAsqvWw&usqp=CAU',
+    name: 'Balanga',
+    description:
+      'Balanga is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Billiri. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 3,
-    story: 'goje',
-    title: 'Gombe 3GG',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWaeptwyUAimiDG8zjXuHcqf9TmOny-bUqyA&usqp=CAU',
+    name: 'Billiri',
+    description:
+      'Billiri is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Billiri. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 4,
-    story: 'goje',
-    title: 'Gombe fgfg',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5sP-wCFFJ4ShW_9B2lR8Oqh3IUxqNBMranw&usqp=CAU',
+    name: 'Dukku',
+    description:
+      'Dukku is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Dukku. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 5,
-    story: 'goje',
-    title: 'Gombe sfggseg',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfb-2pNLxHgalLq4NMOZyZppfSI8y7UxfHeA&usqp=CAU',
+    name: 'Funakaye',
+    description:
+      'Funakaye is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Funakaye. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 6,
-    story: 'goje',
-    title: 'Gombe 4Gg Gombe 4Gg Gombe 4Gg Gombe 4Gg',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6tFeHEa2KY-JAEgrcbGe_iL4fWRcWlXZ4g&usqp=CAU',
+    name: 'Gombe',
+    description:
+      'Gombe is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Gombe. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 7,
-    story: 'goje',
-    title: 'Gombe 5Ghh',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkGHIJjR-nq-GT3HzK9bXmAcKXSzFHLpm08Q&usqp=CAU',
+    name: 'Kaltungo',
+    description:
+      'Kaltungo is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Kaltungo. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
   },
   {
     id: 8,
-    story: 'goje',
-    title: 'Gombe rfgwergfs',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIXXe1vXb7TIcYFA7hA-OdmjEsUOl4kzKdg&usqp=CAU',
+    name: 'Kwami',
+    description:
+      'Kwami is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Kwami. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
+  },
+  {
+    id: 9,
+    name: 'Nafada',
+    description:
+      'Nafada is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Nafada .It has an area of 1, 938 km² and a population of 265, 973 at the 2006 census.',
+  },
+  {
+    id: 10,
+    name: 'Shongom',
+    description:
+      'Shongom is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Shongom. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
+  },
+  {
+    id: 11,
+    name: 'Yamaltu/Deba',
+    description:
+      'Yamaltu/Deba is a Local Government Area of Gombe State, Nigeria. Its headquarters are in the town of Deba. It has an area of 1,938 km² and a population of 265,973 at the 2006 census.',
+  },
+];
+const knowYourPeople = [
+  {
+    id: 1,
+    name: 'Abubakar Habu Hashidu',
+    tenure: '1996-1999',
+    image:
+      'https://cdn.punchng.com/wp-content/uploads/2018/07/27144948/Abubakar-Hashidu-e1532699427480.jpg',
+    description:
+      'Abubakar Habu Hashidu was the first civilian governor of Gombe State, serving from 1996 to 1999. He played a significant role in the early development of the state.',
+  },
+  {
+    id: 2,
+    name: 'Muhammad Danjuma Goje',
+    tenure: '2003-2011',
+    image: 'https://www.channelstv.com/wp-content/uploads/2023/04/Danjuma-Goje.png',
+    description:
+      "Muhammad Danjuma Goje served as the governor of Gombe State from 2003 to 2011. His leadership had a lasting impact on the state's growth.",
+  },
+  {
+    id: 3,
+    name: 'Ibrahim Hassan Dankwambo',
+    tenure: '2011-2019',
+    image: 'https://leadership.ng/wp-content/uploads/2022/09/Ibrahim-Dankwambo.jpeg',
+    description:
+      'Ibrahim Hassan Dankwambo governed Gombe State from 2011 to 2019. He was known for his dedication to education and healthcare development.',
+  },
+  {
+    id: 4,
+    name: 'Muhammadu Inuwa Yahaya',
+    tenure: '2019-present',
+    image: 'https://cdn.vanguardngr.com/wp-content/uploads/2022/03/inuwa.jpg',
+    description:
+      'Muhammadu Inuwa Yahaya is the current governor of Gombe State, serving from 2019 to the present day. He continues to work on the progress of the state.',
   },
 ];
 
 export default function Info({navigation}) {
   const [showRecent, setShowRecent] = useState(true);
   const [searchInfo, setSearchInfo] = useState('');
-  const [lists, setLists] = useState(LatestInfo);
+  const [lists, setLists] = useState(knowYourPeople);
 
   const searchPost = text => {
     if (text === '') {
-      setLists(LatestInfo);
+      setLists(knowYourPeople);
       setSearchInfo(text);
       return;
     }
     const filt = lists.filter(item =>
-      item.title.toLowerCase().includes(text.toLowerCase()),
+      item.name.toLowerCase().includes(text.toLowerCase()),
     );
     setLists(filt);
     setSearchInfo(text);
     setShowRecent(false);
-    console.log(filt);
-    console.log(searchInfo);
+    console.log({filt});
+    console.log({searchInfo});
   };
 
   const onBlur = () => {
@@ -144,11 +198,11 @@ export default function Info({navigation}) {
           <Box py="5" px="5">
             <FlatList
               horizontal={true}
-              data={LatestInfo}
+              data={LGA}
               renderItem={({item}) => (
                 <RecentCard
-                  onPress={() => console.log(item.id)}
-                  text={item.title}
+                  onPress={() => navigation.navigate('ReadPost', {post: item})}
+                  text={item.name}
                 />
               )}
               keyExtractor={item => item.id}
@@ -162,9 +216,9 @@ export default function Info({navigation}) {
           <InfoSmallCircle
             onPress={() => navigation.navigate('ReadPost', {post: item})}
             key={item.id}
-            img={item.img}
-            title={item.title}
-            story={item.story}
+            img={item.image}
+            title={item.name}
+            description={item.description}
           />
         ))}
       </ScrollView>

@@ -1,9 +1,9 @@
 import {StyleSheet, View, Image, Pressable} from 'react-native';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
-import {Box, HStack, Text, VStack} from 'native-base';
-import logoPng from './../../assets/images/logopng.png';
-export default function InfoSmallCircle({title, story, img, onPress}) {
+import {Avatar, Box, HStack, Text, VStack} from 'native-base';
+import GombeLogo from './../../assets/images/GombeLogo.png';
+export default function InfoSmallCircle({title, description, img, onPress}) {
   return (
     <Box>
       <Pressable style={styles.otherNews} onPress={onPress}>
@@ -25,13 +25,16 @@ export default function InfoSmallCircle({title, story, img, onPress}) {
               alignItems={'center'}
               // bg={'red.100'}
             >
-              <Image
+              <Avatar size={'xl'} source={img.length ? {uri: img} : GombeLogo}>
+                GG
+              </Avatar>
+              {/* <Image
                 borderRadius={10}
                 resizeMode="contain"
                 style={styles.otherNewsImage}
                 // source={img}
                 source={{uri: img}}
-              />
+              /> */}
             </Box>
             <Box
               w={'68%'}
@@ -39,7 +42,8 @@ export default function InfoSmallCircle({title, story, img, onPress}) {
               // justifyContent={'center'}
               // alignItems={'center'}
               mx={1}>
-              <VStack p={1}
+              <VStack
+                p={1}
                 // justifyContent={'center'} alignItems={'center'}
               >
                 <Text
@@ -52,8 +56,8 @@ export default function InfoSmallCircle({title, story, img, onPress}) {
                   fontWeight={700}>
                   {title}
                 </Text>
-                <Text px={1} color={'#898A8D'} fontSize={13} numberOfLines={4}>
-                  {story}
+                <Text color={'#898A8D'} fontSize={13} numberOfLines={3}>
+                  {description}
                 </Text>
               </VStack>
             </Box>

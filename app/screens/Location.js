@@ -12,6 +12,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import {COLORS} from '../../assets/colors';
 import HeaderBackButton from '../components/HeaderBackButton';
 import Feather from 'react-native-vector-icons/Feather'
+
 export const RightIcon = ({onPress}) => (
   <Center w={'10'} h={'10'} borderRadius={100} backgroundColor={'darkBlue.800'}>
     <Pressable onPress={onPress}>

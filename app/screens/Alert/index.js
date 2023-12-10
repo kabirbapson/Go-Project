@@ -71,7 +71,7 @@ export default function Alert({navigation}) {
         navigateTo('Hospital');
         break;
       case 3:
-        navigateTo('Status');
+        navigateTo('Happenings');
         break;
       case 4:
         navigateTo('Education');

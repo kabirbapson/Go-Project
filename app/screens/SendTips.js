@@ -25,7 +25,7 @@ import * as image from '../utils/image';
 import axios from 'axios';
 
 export default function SendTips({navigation}) {
-  const [phone, setPhone] = React.useState('No phone added');
+  const [phone, setPhone] = React.useState('');
   const [additionInfo, setAdditionInfo] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -38,7 +38,7 @@ export default function SendTips({navigation}) {
     const apiUrl = 'https://nodev8.onrender.com/sendtips';
 
     const formdata = new FormData();
-    formdata.append('phone', phone);
+    formdata.append('phone', phone.length ? phone : 'No phone number');
     formdata.append('text', additionInfo);
 
     axios
@@ -85,7 +85,7 @@ export default function SendTips({navigation}) {
               // fontFamily={'Lato-Medium'}
               fontSize={'lg'}
               placeholder={
-                'You can share a tip or any suggestion to Gombe State Government.'
+                'You can share a tip or any suggestion to Gombe state government. please include some pictures if possible.'
               }
               // letterSpacing={2}
               placeholderTextColor={'gray.700'}
@@ -158,7 +158,8 @@ export default function SendTips({navigation}) {
             bg={'#264653'}
             rounded={10}
             onPress={handleSend}
-            mt={'10%'}>
+            // mb={10}
+          >
             Send Tips
           </Button>
         </ScrollView>

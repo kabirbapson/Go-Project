@@ -11,7 +11,7 @@ import HeaderBackButton from '../components/HeaderBackButton';
 import axios from 'axios';
 
 export default function QAlert({navigation}) {
-  const [phone, setPhone] = React.useState('No Phone added');
+  const [phone, setPhone] = React.useState('');
   const [additionInfo, setAdditionInfo] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -22,7 +22,7 @@ export default function QAlert({navigation}) {
     const apiUrl = 'https://nodev8.onrender.com/sendtips';
 
     const formdata = new FormData();
-    formdata.append('phone', phone);
+    formdata.append('phone', phone.length ? phone : 'No phone number');
     formdata.append('text', additionInfo);
 
     axios

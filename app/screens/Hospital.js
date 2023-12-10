@@ -16,115 +16,22 @@ import EmergencyContactCard from '../components/EmergencyContactCard';
 import BottomActionSheet from '../components/BottomActionSheet';
 import EmergencyDetail from '../components/EmergencyDetail';
 
-const policeData = [
+const hospitalData = [
   {
     id: 1,
     lga: 'Akko',
     data: [
       {
         id: 1,
-        title: 'Akko Division',
+        title: 'Akko Primary Health Care',
         address: 'Adjacent LGA Secretariat Kumo',
       },
-      {id: 2, title: 'Kobuwa Police Station', address: 'Kumo West, Akko lga'},
-      {id: 3, title: 'Tumu Police Station', address: 'Tumu, Akko lga'},
-    ],
-  },
-  {
-    id: 2,
-    lga: 'Balanga',
-    data: [
-      {
-        id: 1,
-        title: 'Balanga Division',
-        address: 'Near INEC Office Talasse',
-      },
       {
         id: 2,
-        title: 'Nyuwar Police Station',
-        address: 'Nyuwar/Jessu, Balanga lga',
+        title: 'Kobuwa Health and Maternity',
+        address: 'Kumo West, Akko lga',
       },
-    ],
-  },
-  {
-    id: 3,
-    lga: 'Billiri',
-    data: [
-      {
-        id: 1,
-        title: 'Area Command Billiri',
-        address: 'Gombe South, Near FGGC Billiri',
-      },
-      {
-        id: 2,
-        title: 'Billiri Division',
-        address: 'Near Prison HQ. Yola Road,  Billiri',
-      },
-    ],
-  },
-  {
-    id: 4,
-    lga: 'Dukku',
-    data: [
-      {
-        id: 2,
-        title: 'Dukku Division',
-        address: 'Adjacent INEC office Darazo Road Dukku',
-      },
-    ],
-  },
-  {
-    id: 5,
-    lga: 'Kaltungo',
-    data: [
-      {
-        id: 1,
-        title: 'Area Command Kaltungo',
-        address: 'Gombe South, Numan Road, Kaltungo Town',
-      },
-      {
-        id: 2,
-        title: 'Kaltungo Division',
-        address: 'Near State Hotel Kaltungo',
-      },
-      {
-        id: 3,
-        title: 'Nil Police Out post',
-        address: 'Awak, Kaltungo lga',
-      },
-    ],
-  },
-  {
-    id: 6,
-    lga: 'Kwami',
-    data: [
-      {
-        id: 1,
-        title: 'Kwami Division',
-        address: 'Near LGA Secetariat, Mallam Sidi',
-      },
-    ],
-  },
-  {
-    id: 7,
-    lga: 'Shomgom',
-    data: [
-      {
-        id: 1,
-        title: 'Lau Iyaka Police Outpost',
-        address: 'Kulishin,Shomgom lga',
-      },
-    ],
-  },
-  {
-    id: 8,
-    lga: 'Funakaye',
-    data: [
-      {
-        id: 1,
-        title: 'Tongo Police Out Post',
-        address: 'Tongo, Funakaye lga',
-      },
+      {id: 3, title: 'Tumu Clinic', address: 'Tumu, Akko lga'},
     ],
   },
   {
@@ -133,75 +40,28 @@ const policeData = [
     data: [
       {
         id: 1,
-        title: 'State Headquarters Gombe',
+        title: 'Federal Teaching Hospital Gombe',
         address: 'ASHAKA ROAD GOMBE',
       },
       {
         id: 2,
-        title: 'Area Command Gombe',
+        title: 'Miyyeti Hospital',
         address: 'Behind Dukku park, Gombe Metro.',
       },
       {
         id: 3,
-        title: 'Gombe Division',
+        title: 'Gombe State University Teaching Hospital',
         address: 'Near Emirs Palace Gombe Metro',
       },
       {
         id: 4,
-        title: 'Pantami Division',
+        title: 'Pantami Hospital',
         address: 'Behind International Stadium Pantami Gombe metro',
       },
       {
         id: 5,
-        title: 'Tunfure Division',
+        title: 'Hamdala SPecialist Hospital',
         address: 'Near Investment Housing Estate Bauchi Road, Gombe',
-      },
-    ],
-  },
-  {
-    id: 10,
-    lga: 'Nafada/Bajoga',
-    data: [
-      {
-        id: 1,
-        title: 'Nafada Division',
-        address: 'Near LGA Secretariat Nafada',
-      },
-      {
-        id: 2,
-        title: 'Area Command Bajoga',
-        address: 'Gombe North, Gombe Road, Bajoga town.',
-      },
-      {
-        id: 3,
-        title: 'Bajoga Division',
-        address: 'Opp. LGA Secretariat Ashaka Road, Bajoga.',
-      },
-    ],
-  },
-  {
-    id: 11,
-    lga: 'Yamaltu/Deba',
-    data: [
-      {
-        id: 1,
-        title: 'Deba Division',
-        address: 'Adjacent LGA Secretariat Deba',
-      },
-      {
-        id: 2,
-        title: 'Nigeria Police Kinafa Outpost',
-        address: 'Kinafa, Yamaltu/Deba lga',
-      },
-      {
-        id: 3,
-        title: 'Police Outputs Liji',
-        address: 'Liji, Yamaltu/Deba lga',
-      },
-      {
-        id: 4,
-        title: 'Shinga Police Outpost',
-        address: 'Hinna, Yamaltu/Deba lga',
       },
     ],
   },
@@ -209,7 +69,7 @@ const policeData = [
 
 export default function Hospital({navigation}) {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [selectedLGA, setSelectedLGA] = React.useState(policeData[8].lga);
+  const [selectedLGA, setSelectedLGA] = React.useState(hospitalData[1].lga);
   const [cardInfo, setCardInfo] = React.useState({});
 
   const handleViewEmergencyDetail = info => {
@@ -237,7 +97,7 @@ export default function Hospital({navigation}) {
           }}
           my={5}
           onValueChange={itemValue => setSelectedLGA(itemValue)}>
-          {policeData.map(location => (
+          {hospitalData.map(location => (
             <Select.Item
               key={location.id}
               label={location.lga}
@@ -247,7 +107,7 @@ export default function Hospital({navigation}) {
         </Select>
 
         <ScrollView showsVerticalScrollIndicator={false}>
-          {policeData
+          {hospitalData
             .filter(emergencyData => emergencyData.lga === selectedLGA)
             .map(filteredEmergencyData => (
               <EmergencyContactCard

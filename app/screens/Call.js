@@ -224,7 +224,6 @@ export default function Call({route, navigation}) {
                   alignItems={'center'}>
                   <Button
                     style={{justifyContent: 'center', alignItems: 'center'}}
-                    onPress={() => console.log(item.title)}
                     _text={{color: '#264653', fontSize: 20}}>
                     {item.title}
                   </Button>

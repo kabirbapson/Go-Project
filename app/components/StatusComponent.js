@@ -8,40 +8,31 @@ import {
   Button,
   Actionsheet,
   Circle,
+  Avatar,
 } from 'native-base';
-
+import Feather from 'react-native-vector-icons/Feather';
 import React from 'react';
 import {hp, wp} from '../utils/dpTopx';
 
 import HeaderBackButton from '../components/HeaderBackButton';
 import ButtomThumbs from './ButtomThumbs';
-export default function () {
+export default function ({happenings}) {
   return (
     <Box
       // h={hp(150)}
       w={'100%'}
-      bgColor={'red.300'}
+      // bgColor={'red.300'}
       //   alignItems={'flex-start'}
       flexDir={'row'}
       p={2}>
       <Box>
-        <Circle
-          style={{
-            width: hp(40),
-            height: hp(40),
-            borderRadius: 20,
-            backgroundColor: '#2A9D8F',
-          }}></Circle>
+        <Avatar size={'sm'}>
+          <Feather name="activity" size={20} />
+        </Avatar>
       </Box>
-      <Box px={2} mr={4}   alignItems={'flex-start'}>
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis id et,
-          aliquam lorem tincidunt egestas at. Interdum pellentesque dolor
-          natoque lectus etiam. Morbi quis volutpat sit sit. Et morbi tristique
-          nulla id massa. Ac sollicitudin cras suspendisse velit congue. Rhoncus
-          arcu.
-        </Text>
-        <ButtomThumbs />
+      <Box px={2} mr={4} alignItems={'flex-start'}>
+        <Text fontSize={16} >{happenings}</Text>
+        {/* <ButtomThumbs /> */}
       </Box>
     </Box>
   );

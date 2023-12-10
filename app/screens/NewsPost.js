@@ -13,7 +13,6 @@ import RenderHTML from 'react-native-render-html';
 export default function NewsPost({route, navigation}) {
   const {postData} = route.params;
   const handleBackButton = () => navigation.goBack();
-  console.log({postData});
   const {width} = useWindowDimensions();
   const source = postData.content;
   return (

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   text: {
-    fontSize: 10,
+    fontSize: 16,
     // fontFamily: 'Lato-Bold',
     color: 'white',
   },
