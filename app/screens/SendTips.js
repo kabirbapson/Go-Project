@@ -14,66 +14,98 @@ import {
   ScrollView,
   HStack,
 } from 'native-base';
-import React from 'react';
+import React, {useState} from 'react';
 import HeaderBackButton from '../components/HeaderBackButton';
 import LocationSelector from '../components/LocationSelector';
 import {TextInput} from '../components/Input';
 import Feather from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../assets/colors';
 import * as image from '../utils/image';
-
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import axios from 'axios';
+import RNFS from 'react-native-fs';
 
 export default function SendTips({navigation}) {
   const [phone, setPhone] = React.useState('');
   const [additionInfo, setAdditionInfo] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
 
+  const options = {
+    title: 'select image',
+    type: 'library',
+    options: {
+      mediaType: 'photo',
+      includeBase65: false,
+      selectionLimit: 1,
+    },
+  };
+
+  const handleImagePicker = async () => {
+    const myImage = await launchImageLibrary(options);
+    setSelectedImage(myImage);
+    // launchImageLibrary(options, response => {
+    //   setSelectedImage(response.assets[0].uri);
+    // });
+  };
+  // console.log(selectedImage.assets[0]);
+  // console.log(selectedImage);
   const [incidentImages, setIncidentImages] = React.useState([]);
 
   const handleBackButton = () => navigation.goBack();
 
-  const handleSend = () => {
+  const handleSend = async () => {
     setIsLoading(true);
     const apiUrl = 'https://nodev8.onrender.com/sendtips';
 
-    const formdata = new FormData();
-    formdata.append('phone', phone.length ? phone : 'No phone number');
-    formdata.append('text', additionInfo);
-
-    axios
-      .post(apiUrl, formdata, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(response => {
-        setIsLoading(false);
-        alert('Quick Alert sent successfully');
-        navigation.goBack();
-        // Handle successful response
-        // console.log('Request was successful:', response.data);
-      })
-      .catch(error => {
-        // Handle errors
-        console.error('Request failed:', error.message);
-      });
-  };
-
-  const handleAddImage = async () => {
     try {
-      const selectedImage = await image.GetImageFromGallery();
-      if (selectedImage) {
-        setIncidentImages([...incidentImages, selectedImage]);
-      }
+      const imageData = await RNFS.readFile(
+        selectedImage.assets[0].uri,
+        'base64',
+      );
+      const formData = new FormData();
+      formData.append('phone', phone.length ? phone : 'No phone number');
+      formData.append('text', additionInfo);
+      formData.append('path', {
+        uri: selectedImage.assets[0].uri,
+        name: selectedImage.assets[0].fileName,
+        type: selectedImage.assets[0].type,
+        data: imageData,
+      });
+
+      axios
+        .post(apiUrl, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then(response => {
+          setIsLoading(false);
+          alert('Quick Alert sent successfully');
+          navigation.goBack();
+        })
+        .catch(error => {
+          console.error('Request failed:', error.message);
+        });
     } catch (error) {
-      console.error('Error selecting image:', error);
+      console.error(error);
     }
   };
 
+  // const handleAddImage = async () => {
+  //   try {
+  //     const selectedImage = await image.GetImageFromGallery();
+  //     if (selectedImage) {
+  //       setIncidentImages([...incidentImages, selectedImage]);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error selecting image:', error);
+  //   }
+  // };
+
   return (
     <Box p={'5'}>
-      <KeyboardAvoidingView behavior={'position'}>
+      <KeyboardAvoidingView behavior={'height'}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <HeaderBackButton
             headerTitle={'Share a Tip or Suggestion'}
@@ -100,7 +132,7 @@ export default function SendTips({navigation}) {
 
             <HStack justifyContent={'space-between'} alignItems={'center'}>
               <Button
-                onPress={handleAddImage}
+                onPress={handleImagePicker}
                 variant={'outline'}
                 borderColor={'green.500'}
                 p={1}
@@ -132,9 +164,9 @@ export default function SendTips({navigation}) {
               onChangeText={setPhone}
             />
           </Box>
-          {incidentImages && (
+          {/* {selectedImage && (
             <Box>
-              {incidentImages.map((image, index) => (
+              {selectedImage.map((image, index) => (
                 <TouchableOpacity
                   key={index}
                   // onPress={() => handleImagePress(index)}
@@ -147,11 +179,15 @@ export default function SendTips({navigation}) {
                 </TouchableOpacity>
               ))}
             </Box>
-          )}
+          )} */}
           <Image
+            // w={200}
             alt={'jd'}
-            source={incidentImages[0] && {uri: incidentImages[0].uri}}
-            style={{width: 100, height: 100, resizeMode: 'cover'}}
+            source={selectedImage && {uri: selectedImage.assets[0].uri}}
+            size={'xl'}
+            alignSelf={'center'}
+            my={2}
+            rounded={10}
           />
           <Button
             isLoading={isLoading}

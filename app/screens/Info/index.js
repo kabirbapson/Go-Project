@@ -140,8 +140,6 @@ export default function Info({navigation}) {
     setLists(filt);
     setSearchInfo(text);
     setShowRecent(false);
-    console.log({filt});
-    console.log({searchInfo});
   };
 
   const onBlur = () => {

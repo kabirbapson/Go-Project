@@ -77,7 +77,7 @@ export default function Alert({navigation}) {
         navigateTo('Education');
         break;
       default:
-        console.log(action);
+        navigateTo('Education');
     }
   };
 

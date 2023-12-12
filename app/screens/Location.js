@@ -23,11 +23,9 @@ export const RightIcon = ({onPress}) => (
 
 export default function Location({route, navigation}) {
   const handleRightButtonPress = () => {
-    console.log('right button');
   };
 
   const handleBackButton = () => {
-   console.log('object in location')
     navigation.goBack()
   }
 
