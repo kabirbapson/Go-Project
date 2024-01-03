@@ -32,9 +32,7 @@ export default function NewsPost({route, navigation}) {
           width={'100%'}
           height={250}
         />
-        
 
-        
         <Box p={'4'} bg={'white'} flex="1" roundedTop={30}>
           <Text fontSize={'xl'} mb={'4'} fontWeight={900} color={'green.900'}>
             {postData.title}
