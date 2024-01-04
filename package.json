@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "json-server": "json-server --watch db.json --port 3001"
+    "json-server": "json-server --watch db.json --port 3001",
+    "push-android": "appcenter codepush release-react -a kabirbapson/GoNews-a -d Production"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
@@ -18,12 +19,16 @@
     "@react-navigation/native-stack": "^6.6.2",
     "@reduxjs/toolkit": "^1.8.3",
     "apisauce": "^2.1.5",
+    "appcenter": "^5.0.0",
+    "appcenter-analytics": "^5.0.0",
+    "appcenter-crashes": "^5.0.0",
     "axios": "^0.27.2",
     "graphql": "^16.8.1",
     "json-server": "^0.17.4",
     "native-base": "^3.4.17",
     "react": "17.0.2",
     "react-native": "0.68.2",
+    "react-native-code-push": "^8.1.1",
     "react-native-config": "^1.4.6",
     "react-native-encrypted-storage": "^4.0.2",
     "react-native-fs": "^2.20.0",

@@ -90,6 +90,32 @@ const LGA = [
 const knowYourPeople = [
   {
     id: 1,
+    name: 'H.E Muhammadu Inuwa Yahaya',
+    tenure: '2019-present',
+    image: 'https://cdn.vanguardngr.com/wp-content/uploads/2022/03/inuwa.jpg',
+    description:
+      'Muhammadu Inuwa Yahaya is the current governor of Gombe State, serving from 2019 to the present day. He continues to work on the progress of the state.',
+  },
+  {
+    id: 2,
+    name: 'Ibrahim Hassan Dankwambo',
+    tenure: '2011-2019',
+    image:
+      'https://leadership.ng/wp-content/uploads/2022/09/Ibrahim-Dankwambo.jpeg',
+    description:
+      'Ibrahim Hassan Dankwambo governed Gombe State from 2011 to 2019. He was known for his dedication to education and healthcare development.',
+  },
+  {
+    id: 3,
+    name: 'Muhammad Danjuma Goje',
+    tenure: '2003-2011',
+    image:
+      'https://www.channelstv.com/wp-content/uploads/2023/04/Danjuma-Goje.png',
+    description:
+      "Muhammad Danjuma Goje served as the governor of Gombe State from 2003 to 2011. His leadership had a lasting impact on the state's growth.",
+  },
+  {
+    id: 4,
     name: 'Abubakar Habu Hashidu',
     tenure: '1996-1999',
     image:
@@ -98,28 +124,12 @@ const knowYourPeople = [
       'Abubakar Habu Hashidu was the first civilian governor of Gombe State, serving from 1996 to 1999. He played a significant role in the early development of the state.',
   },
   {
-    id: 2,
-    name: 'Muhammad Danjuma Goje',
-    tenure: '2003-2011',
-    image: 'https://www.channelstv.com/wp-content/uploads/2023/04/Danjuma-Goje.png',
+    id: 5,
+    name: 'Habib Hassan (Tauraron Kumo)',
+    tenure: '1980s',
+    image: 'https://rariya.com.ng/wp-content/uploads/2024/01/hhkumo.jpg',
     description:
-      "Muhammad Danjuma Goje served as the governor of Gombe State from 2003 to 2011. His leadership had a lasting impact on the state's growth.",
-  },
-  {
-    id: 3,
-    name: 'Ibrahim Hassan Dankwambo',
-    tenure: '2011-2019',
-    image: 'https://leadership.ng/wp-content/uploads/2022/09/Ibrahim-Dankwambo.jpeg',
-    description:
-      'Ibrahim Hassan Dankwambo governed Gombe State from 2011 to 2019. He was known for his dedication to education and healthcare development.',
-  },
-  {
-    id: 4,
-    name: 'Muhammadu Inuwa Yahaya',
-    tenure: '2019-present',
-    image: 'https://cdn.vanguardngr.com/wp-content/uploads/2022/03/inuwa.jpg',
-    description:
-      'Muhammadu Inuwa Yahaya is the current governor of Gombe State, serving from 2019 to the present day. He continues to work on the progress of the state.',
+      "Habib Hassan, known as Tauraron Kumo, is an accomplished individual with a diverse range of achievements. Born in the 1980s, he has made a significant impact as both a professional and a family man. Throughout his life, Hassan has demonstrated a passion for education, entrepreneurship, and public service.Hassan's educational background includes a Bachelor's degree in Islamic Studies(Ba(Ed)), a Master's degree in Education Policy, Planning and Management (M(Ed)), as well as a Post Graduate Diploma in Islamic Studies(PGD Islamic Studies).Additionally, he holds multiple national and international certificates, which have further strengthened his expertise and knowledge.As a dedicated teacher for over a decade, Hassan has played a pivotal role in shaping the minds of future generations.His commitment to education has resonated with students and fellow educators alike.Passionate about empowering others through knowledge, he has consistently pursued opportunities to enhance educational systems and techniques.In recognition of his contributions, Hassan was appointed to the position of Senior Special Assistant to the Executive Governor of Gombe State on Special Duties.This role allowed him to utilize his skills and experiences to support the government in implementing strategic initiatives and promoting development across the state.Outside of his public service, Habib Hassan is a successful entrepreneur and serves as the MD and CEO of ALHASHAB Global Ventures Limited.Through his leadership, the company has thrived and carved a niche for itself in the business world.Hassan's entrepreneurial spirit and creativity have led to the establishment of flourishing ventures that contribute to the economic growth of the region.Despite his extensive professional commitments, Habib Hassan remains deeply devoted to his family.He cherishes his role as a husband and father, constantly striving to create a loving and supportive environment for his loved ones.Habib Hassan, or Tauraron Kumo, is a remarkable individual who excels in multiple domains.From his distinguished career as an educator and his contributions to public service, to his entrepreneurial success and dedication to his family, Hassan embodies the values of hard work, integrity, and resilience.His life story serves as an inspiration to many, reflecting the incredible impact one can make through passion. https://rariya.com.ng/2024/01/04/governor-inuwa-yahaya-appoints-hon-hassan-habib-kumo-as-ssa/",
   },
 ];
 
