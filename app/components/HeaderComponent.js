@@ -1,25 +1,9 @@
-import {Avatar, Box, Circle, Pressable} from 'native-base';
+import {Avatar, Box, Pressable} from 'native-base';
 import React from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import {COLORS} from '../../assets/colors';
-import {hp, wp} from '../utils/dpTopx';
-import Button from './Button';
-import ButtonComponent from './ButtonComponent';
-import TitleTextComponent from './HeaderTitle';
 
-export default function HeaderComponent({
-  title,
-  titleColor,
-  onProfilePress,
-  onMessagePress,
-  onNotificationPress,
-  featherIconColor,
-}) {
-  const sendTipsAlert = () => {
-    alert('Send tips');
-  };
-
+export default function HeaderComponent({title, titleColor, onProfilePress}) {
   return (
     <View style={styles.logo}>
       <View style={styles.logoGoFlex}>
@@ -30,32 +14,16 @@ export default function HeaderComponent({
         <Text style={[styles.mainTitle, titleColor]}>{title}</Text>
       </View>
       <View style={styles.wrapProfile}>
-        {/* <Pressable onPress={onNotificationPress}>
-          <Feather
-            style={styles.featherIcon}
-            name="bell"
-            size={20}
-            color={featherIconColor}
-          />
-        </Pressable> */}
-        {/* <Pressable onPress={onMessagePress}>
-          <Feather
-            style={styles.featherIcon}
-            name="mail"
-            size={20}
-            color={featherIconColor}
-          />
-        </Pressable> */}
-
         <Box bg={'#216131'} borderRadius={'full'} p={0.5}>
           <Pressable onPress={onProfilePress}>
             <Avatar
-              size={'sm'}
-              source={require('../../assets/images/yo.jpg')}
-            />
+              size={'xs'}
+              // source={require('../../assets/images/yo.jpg')}
+            >
+              <Feather name="info" size={20} color={'blue'} />
+            </Avatar>
           </Pressable>
         </Box>
-
       </View>
     </View>
   );
@@ -78,11 +46,9 @@ const styles = StyleSheet.create({
     marginLeft: 6,
     fontFamily: 'Lato-Black',
     fontSize: 12,
-    // color: '#FDC904',
     letterSpacing: 2,
   },
   wrapProfile: {
-    // backgroundColor:'#216131',
     marginHorizontal: 5,
     flexDirection: 'row',
     justifyContent: 'space-between',

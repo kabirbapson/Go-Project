@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
-import {Spinner, Box, Center, Text, Button} from 'native-base';
+import {Spinner, Center, Text, Button} from 'native-base';
 import {hp} from '../../utils/dpTopx';
 
 import HeaderComponent from '../../components/HeaderComponent';
@@ -10,13 +10,9 @@ import {HeaderTitle} from '../../components/HeaderTitle';
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchPosts} from '../../features/news/newsSlice';
 import NewsFeaturing from '../../components/NewsFeaturing';
-import axios from 'axios';
 
 export default function News({navigation}) {
   const {posts, loading} = useSelector(state => state.news);
-  // const randoPost = Math.floor(Math.random() * 3)
-  // console.log('from home', posts[0].featuredImage.node);
-  // const featuring = post[0];
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchPosts());
@@ -24,7 +20,6 @@ export default function News({navigation}) {
 
   const handleNewsClick = postData => {
     navigation.navigate('NewsPost', {postData});
-    // console.log(postData.title);
   };
 
   return (
@@ -41,9 +36,7 @@ export default function News({navigation}) {
             <Spinner mt="10" size={'lg'} />
           </Center>
         ) : (
-          <ScrollView
-            style={styles.scrollView}
-            showsVerticalScrollIndicator={true}>
+          <ScrollView style={styles.scrollView}>
             {/* header title */}
 
             {posts?.length > 0 ? (
@@ -57,14 +50,6 @@ export default function News({navigation}) {
                     onPress={handleNewsClick}
                   />
                 ))}
-
-                {/* {posts.map(newsPost => (
-                  <NewsSmallCard
-                    key={newsPost.id}
-                    data={newsPost}
-                    onPress={handleNewsClick}
-                  />
-                ))} */}
               </>
             ) : (
               <Center mt={'20%'}>
