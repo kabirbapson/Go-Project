@@ -41,7 +41,10 @@ export default function News({navigation}) {
 
             {posts?.length > 0 ? (
               <>
-                <HeaderTitle textTitle={'Latest News'} />
+                <HeaderTitle
+                  textTitle={'Latest News'}
+                  textStyle={{color: 'green', fontSize: 16}}
+                />
                 <NewsFeaturing data={posts[0]} onPress={handleNewsClick} />
                 {posts.slice(0, 10).map(newsPost => (
                   <NewsSmallCard
