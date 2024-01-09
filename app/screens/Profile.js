@@ -14,39 +14,13 @@ export default function Profile({navigation}) {
         <HeaderBackButton onBackButtonPress={handleBackButton} />
       </Box>
       <Box alignItems={'center'} m={4}>
-        {/* <Image source={gLogo} mt={'3%'} alt="gLogo" h={140} w={140} /> */}
-
-        {/* <Text mt={'2%'} color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
-        GoProject
-      </Text> */}
-        <HStack>
-          <Avatar
-            mt={'7%'}
-            size={'md'}
-            position={'relative'}
-            left={3}
-            source={hhKumo}
-            alt="gmap"
-          />
-          <Avatar
-            mt={'7%'}
-            size={'md'}
-            // position={'relative'}
-            // left={5}
-            source={kbb}
-            alt="gmap"
-          />
-        </HStack>
-        <Text fontStyle={'italic'} mt={'2%'}>
-          Inspired by HHKumo, developed by Bappi
+        <Text mt={10} fontSize={'xl'} color={'blue.900'} fontWeight={'bold'}>
+          Go News
         </Text>
-        {/* <Text color={'#2A9D8F'} fontSize={20} fontWeight={'black'}>
-          Hon. Habib Hassan Kumo
-        </Text> */}
-
         <VStack mt={2} space={4}>
           <Text>
-            About the App Welcome to the Gombe State Leaders & News App.
+            About the App Welcome to the Gombe state prominent figures, leaders
+            & News App.
           </Text>
           <Text>
             This platform is designed to empower the people of Gombe State with
@@ -93,6 +67,28 @@ export default function Profile({navigation}) {
             journey toward a more connected and informed community.
           </Text>
         </VStack>
+
+        <HStack>
+          <Avatar
+            mt={'7%'}
+            size={'md'}
+            position={'relative'}
+            left={3}
+            source={hhKumo}
+            alt="gmap"
+          />
+          <Avatar
+            mt={'7%'}
+            size={'md'}
+            // position={'relative'}
+            // left={5}
+            source={kbb}
+            alt="gmap"
+          />
+        </HStack>
+        <Text fontStyle={'italic'} mt={'2%'}>
+          Inspired by HHKumo, developed by Bappi
+        </Text>
       </Box>
     </ScrollView>
   );

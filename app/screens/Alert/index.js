@@ -13,14 +13,14 @@ const DATA = [
   {
     id: 1,
     iconName: 'police-station',
-    title: 'Security-Police',
+    title: 'Police',
     subtitle: 'List of police stations and divisions.',
     bgColor: COLORS.mediumCyan,
   },
   {
     id: 2,
     iconName: 'ambulance',
-    title: 'Health-Hospital',
+    title: 'Hospital',
     subtitle: 'Find health centers near you.',
     bgColor: COLORS.sandyBrown,
   },
@@ -125,7 +125,7 @@ export default function Alert({navigation}) {
 
       <View style={{paddingHorizontal: 25}}>
         <Text my={'2'} fontFamily={'Lato-Bold'} fontSize={'2xl'}>
-          Emergency Assistance
+          Places nearby
         </Text>
         <FlatList
           data={DATA}

@@ -54,7 +54,7 @@ export default function NewsFeaturing({data, onPress}) {
 
 const styles = StyleSheet.create({
   latestNews: {
-    padding: 14,
+    padding: 12,
     backgroundColor: '#F8F9FA',
     borderRadius: 20,
     shadowColor: '#000000',

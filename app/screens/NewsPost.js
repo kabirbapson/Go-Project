@@ -49,17 +49,6 @@ export default function NewsPost({route, navigation}) {
               lineHeight: 24,
             }}
           />
-          {/* <RenderHTML source={postData.content} /> */}
-          {/* <Text
-            fontSize={'lg'}
-            fontStyle={'italic'}
-            color={'gray.500'}
-            mb={'10'}>
-            {postData.content}
-          </Text> */}
-          <Text alignSelf={'center'} fontStyle={'italic'} fontSize={'sm'}>
-            by HHKumo
-          </Text>
         </Box>
       </ScrollView>
     </View>
