@@ -105,25 +105,23 @@ const knowYourPeople = [
     description:
       'Ibrahim Hassan Dankwambo governed Gombe State from 2011 to 2019. He was known for his dedication to education and healthcare development.',
   },
-
   {
     id: 2,
+    name: 'Ibrahim Hassan Dankwambo',
+    tenure: '2011-2019',
+    image:
+      'https://leadership.ng/wp-content/uploads/2022/09/Ibrahim-Dankwambo.jpeg',
+    description:
+      'Ibrahim Hassan Dankwambo governed Gombe State from 2011 to 2019. He was known for his dedication to education and healthcare development.',
+  },
+  {
+    id: 3,
     name: 'Muhammad Danjuma Goje',
     tenure: '2003-2011',
     image:
       'https://www.channelstv.com/wp-content/uploads/2023/04/Danjuma-Goje.png',
     description:
       "Muhammad Danjuma Goje served as the governor of Gombe State from 2003 to 2011. His leadership had a lasting impact on the state's growth.",
-  },
-
-  {
-    id: 1,
-    name: 'Abubakar Habu Hashidu',
-    tenure: '1996-1999',
-    image:
-      'https://cdn.punchng.com/wp-content/uploads/2018/07/27144948/Abubakar-Hashidu-e1532699427480.jpg',
-    description:
-      'Abubakar Habu Hashidu was the first civilian governor of Gombe State, serving from 1996 to 1999. He played a significant role in the early development of the state.',
   },
 ];
 
